@@ -1,0 +1,79 @@
+{% extends 'nursery/index.html' %}
+{% load static %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'nursery/CSS/product.css' %} ">
+{% endblock css %}
+
+
+{% block title %}Products{% endblock title %}
+{% block body %}
+
+<section class="productsection">
+    <!-- Slider main container -->
+    {% for i in products %}
+    <div class="headtitle" id="{{i.0.Plant_Type}}">
+        <h1>{{i.0.Plant_Type}}</h1>
+    </div>
+    <div class="swiper mySwiper">
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+            <!-- Slides -->
+            <div class="box swiper-slide">
+                <img src="{{i.0.Product_Img.url}}" alt="">
+                <div class="name">
+                    <div class="nameprice">
+                        <div class="pname">
+                            <p>{{i.0.Product_Name}}</p>
+                        </div>
+                        <div class="price">
+                            <p class="pricebox">
+                                <span class="real">&#8377;{{i.0.Real_Price}}</span>
+                                <span class="descount">&#8377;{{i.0.Discount_Price}}</span>
+                                <span class="percent"></span>
+                            </p>
+                        </div>
+                    </div>
+                    <a href="/product/productdetail/{{i.0.id}}{{i.0.Plant_Type}}" class="btn"><i
+                            class="fas fa-info-square"></i></a>
+                </div>
+            </div>
+            {% for j in i|slice:"1:" %}
+            <div class="box swiper-slide">
+                <img src="{{j.Product_Img.url}}" alt="">
+                <div class="name">
+                    <div class="nameprice">
+                        <div class="pname">
+                            <p>{{j.Product_Name}}</p>
+                        </div>
+                        <div class="price">
+                            <p class="pricebox">
+                                <span class="real">&#8377;{{j.Real_Price}}</span>
+                                <span class="descount">&#8377;{{j.Discount_Price}}</span>
+                                <span class="percent"></span>
+                            </p>
+                        </div>
+                    </div>
+                    <a href="/product/productdetail/{{j.id}}{{j.Plant_Type}}" class="btn"><i
+                            class="fas fa-info-square"></i></a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <!-- If we need pagination -->
+        <div class="swiper-pagination"></div>
+
+        <!-- If we need navigation buttons -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+
+        <!-- If we need scrollbar -->
+    </div>
+    {% endfor %}
+</section>
+
+{% endblock body %}
+
+{% block js %}
+<script src="{% static 'nursery/JS/blog.js' %} "></script>
+<script src="{% static 'nursery/JS/product.js' %} "></script>
+{% endblock js %}

@@ -1,0 +1,104 @@
+{% extends 'nursery/index.html' %}
+{% load static %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'nursery/CSS/profile.css' %}">
+<style>
+    label>a {
+        display: none;
+    }
+</style>
+{% endblock css %}
+
+{% block title %}Profile{% endblock title %}
+{% block body %}
+
+<section class="profilesection">
+    <div class="block">
+        <div class="imgbox">
+            {% if not request.user.userdetails.Profile_Pic %}
+            <img src="{% static 'nursery/IMAGE/rose.jpg' %}" alt="hello">
+            {% else %}
+            <img src="{{request.user.userdetails.Profile_Pic.url}}" alt="Upload Your Image or Load Your Image">
+            {% endif %}
+        </div>
+        <div class="sociallink">
+            <ul>
+                {% if not request.user.userdetails.Facebook %}
+                <li><a href="https://www.facebook.com/" target="_blank" id="fb"><i class="fab fa-facebook-f"></i></a>
+                </li>
+                {% else %}
+                <li><a href="{{request.user.userdetails.Facebook}}" target="_blank" id="fb"><i
+                            class="fab fa-facebook-f"></i></a></li>
+                {% endif %}
+                {% if not request.user.userdetails.Twitter %}
+                <li><a href="https://www.twitter.com/" target="_blank" id="twit"><i class="fab fa-twitter"></i></a></li>
+                {% else %}
+                <li><a href="{{request.user.userdetails.Twitter}}" target="_blank" id="twit"><i
+                            class="fab fa-twitter"></i></a></li>
+                {% endif %}
+                {% if not request.user.userdetails.Instagram %}
+                <li><a href="https://www.instagram.com/" target="_blank" id="ig"><i class="fab fa-instagram"></i></a>
+                </li>
+                {% else %}
+                <li><a href="{{request.user.userdetails.Instagram}}" target="_blank" id="ig"><i
+                            class="fab fa-instagram"></i></a></li>
+                {% endif %}
+                {% if not request.user.userdetails.Website %}
+                <li><a href="https://www.google.com" target="_blank" id="ws"><i class="far fa-globe"></i></a></li>
+                {% else %}
+                <li><a href="{{request.user.userdetails.Website}}" target="_blank" id="ws"><i
+                            class="far fa-globe"></i></a></li>
+                {% endif %}
+                {% if not request.user.userdetails.Mobile %}
+                <li><a href="https://wa.me/" id="wa" target="_blank" rel="nofollow noopener"><i
+                            class="fab fa-whatsapp"></i></a></li>
+                {% else %}
+                <li><a href="https://wa.me/{{request.user.userdetails.Mobile}}?text=Hi" id="wa" target="_blank"
+                        rel="nofollow noopener"><i class="fab fa-whatsapp"></i></a></li>
+                {% endif %}
+            </ul>
+        </div>
+        <div class="some">
+            <a href="{% url 'logout' %}" class="btn">Logout</a>
+            <a href="{% url 'changepassword' %}" class="btn">Change Password</a>
+        </div>
+    </div>
+    <div class="block">
+        <div class="detailform">
+            <form class="form" action="" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {% for f in fm %}
+
+                <label for="">
+                    <span class="label">{{f.label_tag}}</span>
+                    {{f}}
+                </label><br>
+                {% endfor %}
+
+                <label for="">
+                    <input type="reset" value="reset">
+                </label><br>
+
+                <label for="">
+                    <input type="submit" value="Save">
+                </label><br>
+            </form>
+        </div>
+    </div>
+</section>
+
+{% endblock body %}
+
+{% block js %}
+<script>
+    let options = document.querySelectorAll('#id_User option');
+    options.forEach((value, index) => {
+        if (options[index].innerHTML == "{{request.user}}") {
+            return;
+        } else {
+            options[index].style.display = 'none';
+        }
+    });
+
+</script>
+{% endblock js %}

@@ -1,0 +1,130 @@
+{% extends 'nursery/index.html' %}
+
+{% block title %}Home{% endblock title %}
+
+{% load static %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'nursery/CSS/home.css' %} ">
+{% endblock css %}
+
+{% block body %}
+<header class="header">
+    <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide" style="--bgimg1:url('{% static 'nursery/IMAGE/indoor.jpg' %}')">
+                <div class="info">
+                    <h2 class="detail">Indoor Plants</h2>
+                    <p>Live With Nature</p>
+                    <a href="/product/#Indoor%20Plant" class="btn">Shop Now</a>
+                </div>
+            </div>
+            <div class="swiper-slide" style="--bgimg1:url('{% static 'nursery/IMAGE/fragrentplant.jpg' %} ')">
+                <div class="info">
+                    <h2 class="detail">Flowering Plants</h2>
+                    <p>Enjoy Natural Fragrance</p>
+                    <a href="/product/#Flowering%20Plant" class="btn">Shop Now</a>
+                </div>
+            </div>
+            <div class="swiper-slide" style="--bgimg1:url('{% static 'nursery/IMAGE/herbal.jpg' %}')">
+                <div class="info">
+                    <h2 class="detail">Harbal Plants</h2>
+                    <p>Live Healthy</p>
+                    <a href="/product/#Harbal%20Plant" class="btn">Shop Now</a>
+                </div>
+            </div>
+            <div class="swiper-slide" style="--bgimg1:url('{% static 'nursery/IMAGE/readplant.jpg' %}')">
+                <div class="info">
+                    <h2 class="detail">Read About Plants</h2>
+                    <p>Grab Knowladge About Plants</p>
+                    <a href="{% url 'blog' %}" class="btn">Read Now</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="swiper-pagination"></div>
+
+        <!-- If we need navigation buttons -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+    </div>
+</header>
+
+<section class="homesection">
+    <div class="nursery">
+        <div class="imge">
+            <div class="pera">
+                <h1>Planters on fleek!</h1>
+                <p>
+                    The perfect companions for your green members and also decor pieces in their own right, our planters
+                    truly amp up your space. There is a plant for every home and a planter for every plant. Browse our
+                    extensive in-house collection to find your match.
+                </p>
+            </div>
+            <img src="{% static 'nursery/IMAGE/plantson.jpg' %} " alt="">
+        </div>
+        <div class="imge">
+            <div class="pera">
+                <h1>Gifts that Grow</h1>
+                <p>
+                    Be it festivals, birthdays or anniversaries, gifting plants signifies hope - for the future. What's
+                    better than gifts that grow with you and remind you of happy times. You select, we deliver, and
+                    happiness is guaranteed.
+                </p>
+            </div>
+            <img src="{% static 'nursery/IMAGE/giftplant.jpg' %} " alt="">
+        </div>
+        <div class="imge">
+            <div class="pera">
+                <h1>Plants Importance</h1>
+                <p>
+                    Plants are really important for the planet and for all living things. Plants absorb carbon dioxide
+                    and release oxygen from their leaves, which humans and other animals need to breathe. Living things
+                    need plants to live - they eat them and live in them. Plants help to clean water too.
+                </p>
+            </div>
+            <img src="{% static 'nursery/IMAGE/plantImp.jpg' %} " alt="">
+        </div>
+    </div>
+
+    <div class="blogs">
+        {% for i in allbl %}
+        <div class="box">
+            <img src="{{i.Main_Img.url}}" alt="">
+            <span class="title">{{i.Blog_Name}}</span>
+            <p class="content">
+                {{i.Small_Info}}
+            </p>
+            <a href="blog/readblog/{{i.id}}{{i.Plant_Type}}">Read More</a>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="products">
+        {% for i in allpr %}
+        <div class="box">
+            <img src="{{i.Product_Img.url}}" alt="">
+            <div class="name">
+                <div class="nameprice">
+                    <div class="pname">
+                        <p>{{i.Product_Name}}</p>
+                    </div>
+                    <div class="price">
+                        <p class="pricebox">
+                            <span class="real">&#8377;{{i.Real_Price}}</span>
+                            <span class="descount">&#8377;{{i.Discount_Price}}</span>
+                            <span class="percent"></span>
+                        </p>
+                    </div>
+                </div>
+                <a href="/product/productdetail/{{i.id}}{{i.Plant_Type}}" class="btn"><i
+                        class="fas fa-info-square"></i></a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+{% endblock body%}
+{% block js %}
+<script src="{% static 'nursery/JS/home.js' %} "></script>
+<script src="{% static 'nursery/JS/product.js' %} "></script>
+{% endblock js %}

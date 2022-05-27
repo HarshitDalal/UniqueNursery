@@ -1,0 +1,122 @@
+{% extends 'nursery/index.html' %}
+{% load static %}
+{% block title %}Write New Blog{% endblock title %}
+{% block css %}
+    <link rel="stylesheet" href="{% static 'nursery/CSS/writeblog.css' %}">
+{% endblock css %}
+{% block body %}
+
+    <section class="writeblogsection">
+        <div class="writeblogdetail">
+            <img src="{% static 'nursery/PNG/Pngegg1.png' %}" alt="" class="bg">
+            <img src="{% static 'nursery/PNG/Pngegg2.png' %}" alt="" class="bg">
+            <div class="mainimg" id="productimg">
+                <img src="https://media.ugaoo.com/catalog/product/cache/81d2f56800d33f099d2b369affd8e374/m/o/moneygolden_45_1.png"
+                    alt="">
+            </div>
+            <form action="" class="form" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <label for="" id="first" class="first">
+                    <span id="firstimg" onclick="document.getElementById('prodimg').click();">Upload Product
+                        Image*</span>
+                    <input type="file" name="prodimg" id="prodimg" class="prodimg">
+                </label>
+                <div class="line">
+
+                    <h2 class="nameproduct"><input type="text" name="prodname" id="prodname" placeholder="Product Name*">
+                    <h2 class="nameproduct"><input type="text" name="author" id="author" placeholder="Author Name*" value="">
+                    </h2>
+                    <h2 class="nameproduct">
+                        <select type="text" name="prodtype" id="prodtype">
+                            <option value="Air Purifier Plant">Air Purifier Plant</option>
+                            <option value="Indoor Plant">Indoor Plant</option>
+                            <option value="Outdoor Plant">Outdoor Plant</option>
+                            <option value="Flowring Plant">Flowring Plant</option>
+                            <option value="Harbal Plant">Harbal Plant</option>
+                            <option value="Low Mantenance Plant">Low Mantenance Plant</option>
+                        </select>
+                    </h2>
+                </div>
+                <div class="price"><input type="submit" value="Add New Blog" class="btn"></div>
+                <div class="productdesc">
+                    <p>
+                        <textarea name="description" placeholder="Write Description Here*" required id="description"
+                            cols="30" rows="10"></textarea>
+                    </p>
+                </div>
+                <div class="productcare">
+                    <h1 class="topic">Lights, Water, Action</h1>
+                    <h4 class="topicpoint">Get your plants ready to slay!</h4>
+                </div>
+                <div class="boxs">
+                    <div class="boxy">
+                        <div class="cont">
+                            <i class="fad fa-sun" style="color: darkorange"></i>
+                            <div class="content">
+                                <h2>Light</h2>
+                                <p><input type="text" required placeholder="Light Type*" name="light" id="light"></p>
+                            </div>
+                        </div>
+                        <div class="cont">
+                            <i class="fas fa-tint" style="color: lightblue;"></i>
+                            <div class="content">
+                                <h2>Watering</h2>
+                                <p><input type="text" name="watering" id="watering" required
+                                        placeholder="Watering Rule*"></p>
+                            </div>
+                        </div>
+                        <div class="cont">
+                            <i class="fas fa-seedling" style="color: green;"></i>
+                            <div class="content">
+                                <h2>Where To Grow</h2>
+                                <p><input type="text" name="wheretogrow" id="wheretogrow" required
+                                        placeholder="Where To Grow*"></p>
+                            </div>
+                        </div>
+                        <div class="cont">
+                            <i class="fas fa-thermometer-half" style="color: darkblue;"></i>
+                            <div class="content">
+                                <h2>Maintenace</h2>
+                                <p><input type="text" name="maintenace" id="maintenace" required
+                                        placeholder="Maintenace*"></p>
+                            </div>
+                        </div>
+                        <div class="cont">
+                            <i class="fas fa-oil-can" style="color: red;"></i>
+                            <div class="content">
+                                <h2>Special Feature</h2>
+                                <p><input type="text" required placeholder="Feature*" name="specialfeature"
+                                        id="specialfeature"></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="boxy">
+                        <div id="otherimg">
+                            <img id="secondimage" src="https://www.ugaoo.com/media/wysiwyg/moneygolden_lwa.jpg" alt="">
+                        </div>
+                        <label for="">
+                            <span id="other" onclick="document.getElementById('secondimg').click();">Upload
+                                Image*</span>
+                            <input type="file" name="secondtimg" id="secondimg">
+                        </label>
+                    </div>
+                </div>
+                <div class="infox">
+                    <div class="infoy">{{form.media}}
+                        {% for f in form %}
+                        <div class="cont">      
+                            <h2>{{f.label}} -</h2>
+                            {{f}}
+                        </div>
+                        {% endfor %}
+                        
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+{% endblock body %}
+
+{% block js %}
+    <script src="{% static 'nursery/JS/addproduct.js' %}"></script>
+{% endblock js %}

@@ -1,0 +1,176 @@
+{% extends 'nursery/index.html' %}
+{% load static %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'nursery/CSS/productdetail.css' %} ">
+<link rel="stylesheet" href="{% static 'nursery/CSS/product.css' %} ">
+<style>
+    .form>input {
+        display: none;
+    }
+
+    .form>.btn {
+        display: inline-flex;
+    }
+
+    .indexsection,
+    .indexsection>.closebtn {
+        z-index: 9;
+    }
+</style>
+{% endblock css %}
+
+{% block title %}Product : {{product.Product_Name}}{% endblock title %}
+{% block body %}
+
+<section class="productdetailsection">
+    <div class="productpricedetail">
+        <img src="{% static 'nursery/PNG/Pngegg1.png' %}" alt="" class="bg">
+        <img src="{% static 'nursery/PNG/Pngegg2.png' %}" alt="" class="bg">
+        <img id="productimg" src="{{product.Product_Img.url}}" alt="">
+        <h2 class="nameproduct">{{product.Product_Name}}</h2>
+        <div class="price">
+            <p class="pricebox">
+                <span class="real">&#8377;{{product.Real_Price}}</span>
+                <span class="descount">&#8377;{{product.Discount_Price}}</span>
+                <span class="percent"></span>
+            </p>
+            <form action="" class="form" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <input type="number" name="user" id="user" value="{{request.user.id}}">
+                <input type="text" name="product" id="product" value="{{product.id}}">
+                <label for="">
+                    <span id="minus">-</span>
+                    <input type="text" name="quantity" id="quantity" min="1" value="1" max="100" maxlength="100"
+                        required>
+                    {{atcform.5}}
+                    <span id="plus">+</span>
+                </label>
+                <input class="btn" id="btn" type="submit" value="Add To Cart">
+            </form>
+        </div>
+        <div class="productdesc">
+            <p>
+                {{product.Description}}
+            </p>
+        </div>
+        <div class="productcare">
+            <h1 class="topic">Lights, Water, Action</h1>
+            <h4 class="topicpoint">Get your plants ready to slay!</h4>
+        </div>
+        <div class="boxs">
+            <div class="boxy">
+                <div class="cont">
+                    <i class="fas fa-sun" style="color: darkorange"></i>
+                    <div class="content">
+                        <h2>Light</h2>
+                        <p>{{product.Light}}</p>
+                    </div>
+                </div>
+                <div class="cont">
+                    <i class="fas fa-tint" style="color: lightblue;"></i>
+                    <div class="content">
+                        <h2>Watering</h2>
+                        <p>{{product.Watering}}</p>
+                    </div>
+                </div>
+                <div class="cont">
+                    <i class="fas fa-seedling" style="color: green;"></i>
+                    <div class="content">
+                        <h2>Where to grow</h2>
+                        <p>{{product.Where_To_Grow}}</p>
+                    </div>
+                </div>
+                <div class="cont">
+                    <i class="fas fa-thermometer-half" style="color: darkblue;"></i>
+                    <div class="content">
+                        <h2>Maintenace</h2>
+                        <p>{{product.Maintenance}}</p>
+                    </div>
+                </div>
+                <div class="cont">
+                    <i class="fas fa-oil-can" style="color: red;"></i>
+                    <div class="content">
+                        <h2>Special feature</h2>
+                        <p>{{product.Special_Feature}}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="boxy">
+                <img src="{{product.Second_Img.url}}" alt="">
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="productsection">
+    <!-- Slider main container -->
+    {% for i in prod %}
+    <div class="headtitle">
+        <h1>Similar Plant</h1>
+    </div>
+    <div class="swiper mySwiper">
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+            <!-- Slides -->
+            <div class="box swiper-slide">
+                <img src="{{i.0.Product_Img.url}}" alt="">
+                <div class="name">
+                    <div class="nameprice">
+                        <div class="pname">
+                            <p>{{i.0.Product_Name}}</p>
+                        </div>
+                        <div class="price">
+                            <p class="pricebox">
+                                <span class="real">&#8377;{{i.0.Real_Price}}</span>
+                                <span class="descount">&#8377;{{i.0.Discount_Price}}</span>
+                                <span class="percent"></span>
+                            </p>
+                        </div>
+                    </div>
+                    <!-- <a href="" class="btn"><i class="fas fa-cart-plus"></i></a> -->
+                    <a href="/product/productdetail/{{i.0.id}}{{i.0.Plant_Type}}" class="btn"><i
+                            class="fas fa-info-square"></i></a>
+                </div>
+            </div>
+            {% for j in i|slice:"1:" %}
+            <div class="box swiper-slide">
+                <img src="{{j.Product_Img.url}}" alt="">
+                <div class="name">
+                    <div class="nameprice">
+                        <div class="pname">
+                            <p>{{j.Product_Name}}</p>
+                        </div>
+                        <div class="price">
+                            <p class="pricebox">
+                                <span class="real">&#8377;{{j.Real_Price}}</span>
+                                <span class="descount">&#8377;{{j.Discount_Price}}</span>
+                                <span class="percent"></span>
+                            </p>
+                        </div>
+                    </div>
+                    <!-- <a href="" class="btn"><i class="fas fa-cart-plus"></i></a> -->
+                    <a href="/product/productdetail/{{j.id}}{{j.Plant_Type}}" class="btn"><i
+                            class="fas fa-info-square"></i></a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <!-- If we need pagination -->
+        <div class="swiper-pagination"></div>
+
+        <!-- If we need navigation buttons -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+
+        <!-- If we need scrollbar -->
+    </div>
+    {% endfor %}
+</section>
+{% endblock body %}
+
+{% block js %}
+
+<script src="{% static 'nursery/JS/productdetail.js' %}"></script>
+<script src="{% static 'nursery/JS/blog.js' %}"></script>
+<script src="{% static 'nursery/JS/product.js' %}"></script>
+{% endblock js %}

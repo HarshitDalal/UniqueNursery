@@ -1,0 +1,8 @@
+UniqeNursery.sqlite3
+__pycache__/
+*.log
+*.pot
+*.pyc
+media
+SwiperJs/
+imp.json

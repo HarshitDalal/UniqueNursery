@@ -1,0 +1,91 @@
+{% extends 'nursery/index.html' %}
+{% block title %}{{blog.Blog_Name}}{% endblock title %}
+{% load static %}
+{% block css %}
+    <link rel="stylesheet" href="{% static 'nursery/CSS/readblog.css' %}">
+{% endblock css %}
+
+{% block body %}
+    <section class="readblogsection">
+        <div class="readblogdetail">
+            <img src="{% static 'nursery/PNG/Pngegg1.png' %}" alt="" class="bg">
+            <img src="{% static 'nursery/PNG/Pngegg2.png' %}" alt="" class="bg">
+            <img id="productimg" src="{{blog.Main_Img.url}}" alt="">
+            <h2 class="nameproduct">{{blog.Blog_Name}}</h2>
+            <h2 class="author">{{blog.Author}} <b>.</b> <span>{{blog.Date}}</span></h2>
+            <div class="productdesc">
+                <p>
+                    {{blog.Small_Info}}
+                </p>
+            </div>
+            <div class="productcare">
+                <h1 class="topic">Lights, Water, Action</h1>
+                <h4 class="topicpoint">Get your plants ready to slay!</h4>
+            </div>
+            <div class="boxs">
+                <div class="boxy">
+                    <div class="cont">
+                        <i class="fad fa-sun" style="color: darkorange"></i>
+                        <div class="content">
+                            <h2>Light</h2>
+                            <p>{{blog.Light}}</p>
+                        </div>
+                    </div>
+                    <div class="cont">
+                        <i class="fas fa-tint" style="color: lightblue;"></i>
+                        <div class="content">
+                            <h2>Watering</h2>
+                            <p>{{blog.Watering}}</p>
+                        </div>
+                    </div>
+                    <div class="cont">
+                        <i class="fas fa-seedling" style="color: green;"></i>
+                        <div class="content">
+                            <h2>Where to grow</h2>
+                            <p>{{blog.Where_To_Grow}}</p>
+                        </div>
+                    </div>
+                    <div class="cont">
+                        <i class="fas fa-thermometer-half" style="color: darkblue;"></i>
+                        <div class="content">
+                            <h2>Maintenance</h2>
+                            <p>{{blog.Maintenance}}</p>
+                        </div>
+                    </div>
+                    <div class="cont">
+                        <i class="fas fa-oil-can" style="color: red;"></i>
+                        <div class="content">
+                            <h2>Special feature</h2>
+                            <p>{{blog.Special_Feature}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="boxy">
+                    <img src="{{blog.Second_Img.url}}" alt="">
+                </div>
+            </div>
+            <div class="infox">
+                <div class="infoy">
+                    <div class="cont">
+                        <h1>Plant Essentials -</h1>
+                        <p>
+                            {{blog.Plant_Essentials|safe}}
+                        </p>
+                    </div>
+                    <div class="cont">
+                        <h1>Common Problems - </h1>
+                        <p>
+                            {{blog.Common_Problems|safe}}
+                        </p>
+                    </div>
+                    <div class="cont">
+                        <h1>Style and Décor - </h1>
+                        <p>
+                            {{blog.Style_and_Décor|safe}}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock body %}

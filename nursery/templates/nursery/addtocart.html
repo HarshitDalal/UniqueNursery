@@ -1,0 +1,38 @@
+{% extends 'nursery/index.html' %}
+{% load static %}
+
+{% block title %}CART{% endblock title %}
+{% block css %}
+    <link rel="stylesheet" href="{% static 'nursery/CSS/addtocart.css' %}">
+{% endblock css %}
+
+{% block body %}
+<section class="addtocartsection">
+    <div class="heading">
+        <h1>Plant</h1>
+        <h1>Description</h1>
+        <h1>Order</h1>
+    </div>
+    {% for i in added %}
+        <form action="" class="form" method="post">
+            {% csrf_token %}
+            <input type="text" style="display:none;" name="prid" id="prid{{i.id}}" value="{{i.id}}">
+            <div class="boxx">
+                <img src="/media/{{i.Product.Second_Img}}" alt="{{i.Product.Product_Name}}">
+                <div class="boxy">
+                    <input type="text" name="name" id="name{{i.id}}" readonly required value="{{i.Product.Product_Name}}">
+                    <input type="text" name="name" id="type{{i.id}}" readonly required value="{{i.Product.Plant_Type}}">
+                    <input type="text" name="price" id="price{{i.id}}" readonly required value="₹ {{i.Product_Amount}}">
+                    <input type="text" name="quantity" id="quantity{{i.id}}" readonly required value="Quantity - {{i.Product_Quantity}}">
+                </div>
+                <div class="button">
+                    <input type="submit" name="Order" value="Order">
+                    <input type="submit" name="Remove" value="Remove">
+                </div>
+            </div>
+        </form>
+    {% endfor %}
+</section>
+{% endblock body %}
+
+{% block js %}{% endblock js %}

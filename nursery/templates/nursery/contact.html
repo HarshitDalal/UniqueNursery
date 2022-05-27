@@ -1,0 +1,58 @@
+{% extends 'nursery/index.html' %}
+{% load static %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'nursery/CSS/contact.css' %} ">
+{% endblock css %}
+
+{% block title %}Contact{% endblock title %}
+{% block body %}
+
+<section class="contactsection" style="--img:url('{% static 'nursery/IMAGE/back.jpg' %}')">
+    <div class="infocontact">
+        <h1>CONTACT US ABOUT UNIQE NURSERY</h1>
+        <p>Let's pass it on cleaner, better, and greener.</p>
+    </div>
+    <div class="contactbox">
+        <div class="detailbox">
+            <div class="box">
+                <a href=""><i class="fa fa-phone-alt"></i></a>
+                <div class="text">
+                    <h3>Call as directly at</h3>
+                    <p>+91-7999317168</p>
+                </div>
+            </div>
+            <div class="box">
+                <a href=""><i class="fa fa-envelope"></i></a>
+                <div class="text">
+                    <h3>Email</h3>
+                    <p>dgmarket11@gmail.com</p>
+                </div>
+            </div>
+            <div class="box">
+                <a href=""><i class="fa fa-map-marker"></i></a>
+                <div class="text">
+                    <h3>Address</h3>
+                    <p>Pratappura, Burhanpur M.P. <br>450331</p>
+                </div>
+            </div>
+        </div>
+        <div class="contactform">
+            <h2>Contact For More Details</h2>
+            <form class="form" action="{% url 'contact' %}" method="POST">
+                {% csrf_token %}
+                {% for form in confm %}
+                <label for="">
+                    <span class="label">{{form.label}}</span>
+                    {{form}}
+                </label><br>
+                {% endfor %}
+                <label for="">
+                    <input type="reset" value="Reset">
+                    <input type="submit" value="Send">
+                </label>
+            </form>
+        </div>
+    </div>
+</section>
+
+{% endblock body %}

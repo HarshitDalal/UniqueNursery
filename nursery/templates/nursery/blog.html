@@ -1,0 +1,57 @@
+{% extends 'nursery/index.html' %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'nursery/CSS/blog.css' %} ">
+{% endblock css %}
+
+
+{% block title %}Blogs{% endblock title %}
+{% block body %}
+
+<section class="blogsection">
+    <!-- Slider main container -->
+    {% for i in products %}
+    <div class="headtitle" id="{{i.0.Plant_Type}}">
+        <h1>{{i.0.Plant_Type}}</h1>
+    </div>
+    <div class="swiper mySwiper">
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+            <!-- Slides -->
+            <div class="swiper-slide box">
+                <img src="{{i.0.Main_Img.url}}" alt="">
+                <p class="title">{{i.0.Blog_Name}}</p>
+                <p class="content">
+                    {{i.0.Small_Info}}
+                </p>
+                <a href="readblog/{{i.0.id}}{{i.0.Plant_Type}}">Read More</a>
+            </div>
+            {% for j in i|slice:"1:" %}
+            <div class="swiper-slide box">
+                <img src="{{j.Main_Img.url}}" alt="">
+                <span class="title">{{j.Blog_Name}}</span>
+                <p class="content">
+                    {{j.Small_Info}}
+                </p>
+                <a href="readblog/{{j.id}}{{j.Plant_Type}}">Read More</a>
+            </div>
+            {% endfor %}
+        </div>
+        <!-- If we need pagination -->
+        <div class="swiper-pagination"></div>
+
+        <!-- If we need navigation buttons -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+
+        <!-- If we need scrollbar -->
+    </div>
+    {% endfor %}
+</section>
+
+{% endblock body %}
+
+{% block js %}
+<script src="{% static 'nursery/JS/blog.js' %} "></script>
+{% endblock js %}

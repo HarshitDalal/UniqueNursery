@@ -1,0 +1,66 @@
+{% extends 'nursery/index.html' %}
+{% load static %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'nursery/CSS/about.css' %} ">
+{% endblock css %}
+
+{% block title %}About{% endblock title %}
+{% block body %}
+
+<section class="aboutsection" style="--img:url('{% static 'nursery/IMAGE/back.jpg' %}')">
+    <div class="infocontact">
+        <h1>ABOUT UNIQE NURSERY</h1>
+        <p>We firmly believe that we do not inherit the earth from our ancestors.</p>
+    </div>
+    <div class="aboutbox">
+        <h1>WHO WE ARE</h1>
+        <p>
+            We are garden gnomes. Really!! We grow things, from dirt. <br>
+            We don’t just sell plants, we make your gardens thrive and solve all your gardening issues, magically.
+        </p>
+        <div class="about">
+            <div class="box">
+                <img src="{% static 'nursery/IMAGE/rose.jpg' %} " alt="">
+                <span class="title">Our History</span>
+                <p class="content">
+                    Lorem ipsum, dolor sit Lorem ipsum dolor sit amet consectetur adipisicing. amet consectetur
+                    adipisicing elit. Repellendus ea ratione ullam veritatis ipsam odio aliquam voluptates atque
+                    corrupti maxime!
+                </p>
+            </div>
+            <div class="box">
+                <img src="{% static 'nursery/IMAGE/what_we_do.png' %} " alt="">
+                <span class="title">What We Do</span>
+                <p class="content">
+                    We create green spaces, both indoors and outdoors. We are here to make the concrete jungle, we call
+                    home, a greener and more sustainable space through customized gardening solutions. Through our Own
+                    Grown Farms initiative we convert open urban spaces into food gardens to lower food miles and
+                    promote community gardening values.
+                </p>
+            </div>
+            <div class="box">
+                <img src="{% static 'nursery/IMAGE/how_we_do_it.png' %} " alt="">
+                <span class="title">How We Do It</span>
+                <p class="content">
+                    We are driven by our passion to promote sustainability as a feasible way of life. We are devoted to
+                    cultivating a community of gardeners who are as passionate about gardening as we are and hand
+                    holding those who are not yet fully convinced, to dive deep into the green world with us.
+                </p>
+            </div>
+            <div class="box">
+                <img src="{% static 'nursery/IMAGE/our_mission.jpg' %} " alt="">
+                <span class="title">Our Mission</span>
+                <p class="content">
+                    We have big dreams - for everyone.
+
+                    Fully sustainable food farms on every inch of empty unused urban real estate, pan India dispatch
+                    centres and nurseries that deliver plants to every home in every pin code, and a family of customers
+                    who are more family than customer. We aim to make growing our own food a norm to reduce the carbon
+                    footprint we generate and in the process neutralize environmental carbon percentage further.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock body %}

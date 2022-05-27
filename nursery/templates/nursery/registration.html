@@ -1,0 +1,44 @@
+{% extends "nursery/index.html" %}
+
+{% block title %}Registration{% endblock title %}
+{% load static %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'nursery/CSS/registration.css' %}">
+
+{% endblock css %}
+
+{% block body %}
+<section class="register" style="--imgb: url('{% static 'nursery/IMAGE/lrfc.jpg' %}');">
+    <div class="contantbx">
+        <div class="formbx">
+            <h2>Registar</h2>
+            <form action="" method="post">
+                {% csrf_token %}
+                {% for fm in regfm %}
+                <div class="inputbx">
+                    <span class="placeholder">{{fm.label_tag}}</span>
+                    <label for="">
+                        {{fm}}
+                    </label>
+                </div>
+                {% endfor %}
+                <div class="inputbx">
+                    <input type="submit" value="Sign Up">
+                </div>
+                <div class="inputbx">
+                    <p>Already have a account? <a href="{% url 'login' %}">Sign In</a></p>
+                    <p class="center"><a href="{% url 'forgotpassword' %}">Forgot Password</a></p>
+                </div>
+            </form>
+            {% comment %}
+            <hr>
+            <h3>Login with social media</h3>
+            <ul class="sci">
+                <li><a href=""><i class="fab fa-facebook-f"></i></a></li>
+                <li><a href=""><i class="fab fa-twitter"></i></a></li>
+                <li><a href=""><i class="fab fa-google"></i></a></li>
+            </ul> {% endcomment %}
+        </div>
+    </div>
+</section>
+{% endblock body %}

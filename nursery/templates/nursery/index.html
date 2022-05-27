@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Baloo+Bhai+2:wght@400;500;600;700;800&family=Ubuntu:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="shortcut icon" href="{% static 'nursery/PNG/favicon.png' %} " type="image/x-icon">
+
+    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css">
+    <link rel="stylesheet" href="{% static 'nursery/CSS/index.css' %} ">
+
+    {% block css %}{% endblock css %}
+    <style>
+        img.bg {
+            height: 100vh !important;
+        }
+    </style>
+    <link rel="stylesheet" href="{% static 'nursery/CSS/mediaquery.css' %} ">
+
+    <title>{% block title %}{% endblock title %} | UNIQE NURSERY</title>
+
+</head>
+
+<body>
+    <header class="header">
+        <nav class="nav">
+            <div class="logo">
+                <img src="{% static 'nursery/PNG/favicon.png' %} " alt="">
+                <b>UNIQE NURSERY</b>
+            </div>
+            <div class="navigation">
+                <ul>
+                    <li><a href="{% url 'home' %}">Home</a></li>
+                    <li><a href="{% url 'product' %}">Products</a></li>
+                    <li><a href="{% url 'blog' %}">Blogs</a></li>
+                    <li><a href="{% url 'about' %}">About</a></li>
+                    <li><a href="{% url 'contact' %}">Contact</a></li>
+                </ul>
+            </div>
+            <div class="navi">
+                <ul>
+                    <li><a href="{% url 'addtocart' %}"><i class="fas fa-shopping-cart"></i></a></li>
+                    <li><a href="{% url 'order' %}"><i class="fas fa-bags-shopping"></i></a></li>
+                    <li><a href="{% url 'profile' %}"><i class="fas fa-user"></i></a></li>
+                </ul>
+            </div>
+            <i class="fas fa-bars manu-icon"></i>
+            <i class="fas fa-times close-icon"></i>
+        </nav>
+    </header>
+
+    {% comment %} <section class="indexsection">
+        <div class="messages" style="padding:0;">
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="note {{message.tags}} width">
+                        <span class="closebtn" onclick="this.parentElement.style.display='none'">&times;</span>
+                        <p>{{message}}</p>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        </div>
+    </section> {% endcomment %}
+
+    {% block body %}
+
+    {% endblock body %}
+
+    <footer class="footer">
+        <div class="foot">
+            <div class="logosmalldesc">
+                <a href="">
+                    <img src="{% static 'nursery/PNG/favicon.png' %} " alt="">
+                </a>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus exercitationem maxime vel!
+                    Praesentium excepturi nihil repellat odio, iste illum iure?
+                </p>
+            </div>
+            <div class="social">
+                <h3>Follow Us</h3>
+                <ul>
+                    <li><a href=""><i class="fab fa-facebook-f"></i> Facebook</a></li>
+                    <li><a href=""><i class="fab fa-instagram"></i> Instagram</a></li>
+                    <li><a href=""><i class="fab fa-twitter"></i> Twitter</a></li>
+                    <li><a href=""><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+                </ul>
+            </div>
+            <div class="shortcut">
+                <h3>Useful Links</h3>
+                <ul>
+                    <li><a href="{% url 'product' %}"><i class="fas fa-shopping-cart"></i> Products</a></li>
+                    <li><a href="{% url 'writeblog' %}"><i class="fas fa-blog"></i> Write Blogs</a></li>
+                    <li><a href="{% url 'addproduct' %}"><i class="fas fa-balance-scale"></i> Sell Product</a></li>
+                    <li><a href="{% url 'contact' %}"><i class="fas fa-comments"></i> Contact</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>
+                Copyright <a href="{% url 'home' %}">&copy;2021 - UNIQE SHOP</a>
+            </p>
+        </div>
+    </footer>
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+    <script src="{% static 'nursery/JS/index.js' %} "></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    {% if messages %}
+        {% for message in messages %}
+            {% if message.tags == 'success' %}
+                <script>
+                    Swal.fire({
+                        icon: 'success',
+                        title: '{{message}}',
+                    })
+                </script>
+            {% elif message.tags == 'error' %}
+                <script>
+                    Swal.fire({
+                        icon: 'error',
+                        title: '{{message}}',
+                    })
+                </script>
+            {% else %}
+                <script>
+                    Swal.fire({
+                        icon: 'question',
+                        title: '{{message}}',
+                    })
+                </script>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+    {% block js %}{% endblock js %}
+</body>
+
+</html>

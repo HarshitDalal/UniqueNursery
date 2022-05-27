@@ -1,0 +1,551 @@
+@media screen and (max-width: 768px) {
+    .header{
+        .nav{
+            .navigation{
+                display: none;
+            }
+            .manu-icon{
+                display: flex !important;
+            }
+            .navigation.manu-active{
+                position: absolute;
+                display: inline-flex;
+                top: 7.3rem;
+                width: 97%;
+                left: 1.6%;
+                z-index: 9999;
+                text-align: left;
+                height: 30rem;
+                ul{
+                    display: flex;
+                    background: var(--navbg);
+                    width: 100%;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    padding: 2rem 2.2rem;
+                    li{
+                        margin: 1.6rem 0;
+                    }
+                }
+            }
+        }
+    }
+    .footer{
+        .foot{
+            flex-direction: column;
+            align-items: flex-start !important;
+            .logosmalldesc{
+                flex-basis: 34rem !important;
+                p{
+    
+                    font-size: 2.5rem !important;
+                }
+            }
+            .social{
+                ul{
+                    li{
+                        a{
+                            font-size: 2rem !important;
+                        }
+                    }
+                }
+            }
+            .shortcut{
+                ul{
+                    li{
+                        a{
+                            font-size: 2rem !important;
+                        }
+                    }
+                }
+            }
+        }
+        .copyright{
+            padding: 2rem 0;
+            p{
+                font-size: 1.8rem;
+                a{
+                    font-size: 1.8rem;
+    
+                }
+            }
+        }
+    }
+    
+    /* 
+        index page media query finish
+    
+        home media query
+    */
+    
+    .header{
+        .swiper{
+            height: 45vh;
+            .swiper-wrapper{
+                .swiper-slide{
+                    .info{
+                        h2{
+                            font-size: 4rem;
+                        }
+                        p{
+                            font-size: 2rem;
+                        }
+                        .btn{
+                            padding: 1rem 2rem;
+                        }
+                    }
+                }
+            }
+            .swiper-pagination-bullet-active{
+                height: 1.5rem;
+                width: 1.5rem;
+            }
+            .swiper-pagination-bullet{
+                height: 1.5rem;
+                width: 1.5rem;
+            }
+        }
+    }
+    .homesection{
+        .nursery{
+            padding: 1rem;
+            .imge{
+                flex-direction: column;
+                padding: 1.3rem;
+                border-radius: 1rem;
+                .pera{
+                    width: 100%;
+                    h1{
+                        text-align: center;
+                    }
+                }
+                img{
+                    width: 100%;
+                    height: 23rem;
+                }
+                &:nth-child(2){
+                    flex-direction: column;
+                }
+            }
+        }
+        .blogs{
+            width: calc(100/1);
+            flex-wrap: wrap;
+            padding: 1rem;
+            .box{
+                margin: .5rem;
+            }
+        }
+        .products{
+            display: none;
+        }
+    }
+    
+    /* 
+        home section media query finish
+    
+        about section media query
+    */
+    
+    .aboutsection{
+        .infocontact{
+            min-height: 40vh;
+            padding: 0 2rem;
+            h1{
+                font-size: 3rem;
+            }
+            p{
+                font-size: 1.4rem;
+                text-align: center;
+            }
+        }
+        .aboutbox{
+            h1{
+                font-size: 3rem;
+            }
+            .about{
+                width: calc(100/1);
+                flex-direction: column;
+                padding: 2rem .5rem;
+                .box{
+                    margin: 1rem .4rem;
+                    .content{
+                        height: 100%;
+                    }
+                }
+            }
+        }
+    }
+    
+    /* 
+        about section media query finish
+    
+        contact section media query
+    */
+    
+    .contactsection{
+        .infocontact{
+            min-height: 40vh;
+            padding: 0 2rem;
+            h1{
+                font-size: 3rem;
+                text-align: center;
+            }
+            p{
+                font-size: 1.4rem;
+                text-align: center;
+            }
+        }
+        .contactbox{
+            flex-direction: column;
+            padding: 2rem 0rem;
+            .detailbox{
+                padding: 1rem .2rem;
+                .box{
+                    padding: 3rem 2rem;
+                    a{
+                        font-size: 3rem;
+                    }
+                    .text{
+                        h3{
+                            font-size: 2.5rem;
+                        }
+                        p{
+                            font-size: 1.8rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    /* 
+        contact section media query finish
+    
+        blog section media query
+    */
+    
+    .blogsection{
+        padding: 2rem 1rem;
+        .swiper{
+            padding: 2rem 1rem;
+            .swiper-wrapper{
+                .box{
+                    height: 50rem;
+                    margin-bottom: 1rem;
+                    .content{
+                        font-size: 1.6rem;
+                        height: 14rem;
+                    }
+                    a{
+                        font-size: 1.5rem;
+                    }
+                }
+            }
+        }
+    }
+
+    /* 
+        blog section media query finish
+
+        product section media query
+    */
+
+    .productsection{
+        padding: 2rem 1rem;
+        .headtitle{
+            padding: 1rem;
+            h1{
+                font-size: 2.5rem;
+            }
+        }
+        .swiper{
+            padding: 2rem 1rem;
+            .swiper-wrapper{
+                .box{
+                    margin-bottom: 1rem;
+                    .content{
+                        font-size: 1.6rem;
+                        height: 14rem;
+                    }
+                }
+            }
+        }
+    }
+    
+    /* 
+        product section media query finish
+    
+        profile section media query
+    */
+    
+    .profilesection{
+        flex-direction: column;
+        .block{
+            margin: 3rem 0;
+            width: 100%;
+            &:nth-child(1){
+                width: 100%;
+                height: 50vh;
+            }
+            .detailform{
+                width: 100%;
+                padding: 2rem 0;
+            }
+        }
+    }
+
+    /* 
+        profile section media query done
+
+        productdetail section media query
+    */
+
+    .productdetailsection,.readblogsection{
+        padding-bottom: 0;
+        .productpricedetail,.readblogdetail{
+            img.bg{
+                height: 50vh;
+            }
+            img{
+                width: 50%;
+                margin-bottom: 2rem;
+            }
+            .nameproduct{
+                font-size: 2.7rem;
+            }
+            .author{
+                font: 300 1.8rem var(--font1);
+            }
+            .price{
+                flex-direction: column;
+                .pricebox{
+                    margin: 1.6rem 0;
+                }
+                .form{
+                    flex-direction: column;
+                    label{
+                        input[type=text]{
+                            width: 45%;
+                        }
+                    }
+                }
+            }
+            .productdesc{
+                p{
+                    font-size: 2rem;
+                }
+            }
+            .productcare{
+                .topic{
+                    font-size: 3rem;
+                }
+                .topicpoint{
+                    font-size: 1.6rem;
+                }
+            }
+            .boxs{
+                flex-direction: column;
+                .boxy{
+                    width: 100%;
+                    &:nth-child(1){
+                        width: 100%;
+                    }
+                    .cont{
+                        i{
+                            font-size: 3rem;
+                            margin-right: 1rem;
+                            padding: 0 .3rem;
+                        }
+                        .content{
+                            margin-left: 1rem;
+                            h2{
+                                font-size: 2.4rem;
+                            }
+                            p{
+                                font-size: 1.4rem;
+                            }
+                        }
+                    }
+                }
+            }
+            .infox{
+                .infoy{
+                    padding: 0;
+                    .cont{
+                        border-radius: 1rem;
+                        border-bottom: .2rem solid var(--inputbg);
+                        padding: 2rem;
+                        h1{
+                            text-align: center;
+                        }
+                        p{
+                            text-align: justify;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    /* 
+        productdetail section media query finish
+        
+        form section media query
+    */
+
+    .login,.register,.forgotpw,.passwordchange{
+        .contantbx{
+            width: 90%;
+            .formbx{
+                width: 90%;
+            }
+        }
+    }
+    
+    /* 
+        form section media query finish
+
+        addproduct section media query
+    */
+
+    .addproduct,.writeblogsection{
+        padding-bottom: 0;
+        .productpricedetail,.writeblogdetail{
+            img.bg{
+                height: 50vh;
+            }
+            .mainimg{
+                width: 100%;
+                img{
+                    width: 50%;
+                    margin-bottom: 2rem;
+                }
+            }
+            .form{
+                // text-align: center;
+                text-align: center;
+                input,select,textarea{
+                    width: 100%;
+                }
+                .nameproduct{
+                    font-size: 2.7rem;
+                }
+                .price{
+                    flex-direction: column;
+                    .pricebox{
+                        margin: 1.6rem 0;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        flex-direction: column;
+                        input{
+                            width: 85%;
+                        }
+                    }
+                    .btn{
+                        width: 85%;
+                    }
+                   
+                }
+                .productdesc{
+                    p{
+                        font-size: 2rem;
+                    }
+                }
+                .productcare{
+                    .topic{
+                        font-size: 3rem;
+                    }
+                    .topicpoint{
+                        font-size: 1.6rem;
+                    }
+                }
+                .boxs{
+                    flex-direction: column;
+                    .boxy{
+                        width: 100%;
+                        &:nth-child(1){
+                            width: 100%;
+                        }
+                        .cont{
+                            i{
+                                font-size: 3rem;
+                                margin-right: 1rem;
+                                padding: 0 .3rem;
+                            }
+                            .content{
+                                margin-left: 1rem;
+                                h2{
+                                    font-size: 2.4rem;
+                                }
+                                p{
+                                    font-size: 1.4rem;
+                                }
+                            }
+                        }
+                    }
+                }
+                .infox{
+                    .infoy{
+                        .cont{
+                            h2{
+                                text-indent: 0;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    /* 
+        add to cart and order media query
+    */
+    .addtocartsection,.ordersection{
+        .heading{
+            h1{
+                font-size: 2rem;
+                font-weight: 700;
+                text-indent: 0;
+                &:nth-child(1){
+                    width: 20%;
+                }
+                &:nth-child(2){
+                    width: 50%;
+                }
+            }
+        }
+        .form{
+            height: 15rem;
+            .boxx{
+                img{
+                    width: 20%;
+                    margin-right: 1.5rem;
+                    height: 10rem;
+                }
+                .boxy{
+                    input{
+                        font-size: 1.7rem;
+                        margin: .5rem;
+                        &:nth-child(2){
+                            font-size: 1.2rem;
+                        }
+                        &:nth-child(3){
+                            font-size: 1.5rem;
+                        }
+                    }
+                }
+                .button{
+                    input[type=submit],h1{
+                        width: 100%;
+                        font-size: 1.4rem;
+                        margin: .55rem 0;
+                        padding: 1rem .5rem;
+                    }
+                }
+            }
+        }
+    }
+}
