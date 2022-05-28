@@ -263,7 +263,7 @@ def writeblog(request):
         if tegfm.is_valid():
             plantessentials=tegfm.cleaned_data['Plant_Essentials']
             commonproblems=tegfm.cleaned_data['Common_Problems']
-            styleanddécor=tegfm.cleaned_data['Style_and_Décor']
+            styleanddécor=tegfm.cleaned_data['Style_and_Decor']
         prodimg = request.FILES['prodimg']
         blogname = request.POST['prodname']
         author = request.POST['author']
@@ -290,7 +290,7 @@ def writeblog(request):
             Second_Img = secondtimg,
             Plant_Essentials=plantessentials,
             Common_Problems=commonproblems,
-            Style_and_Décor=styleanddécor
+            Style_and_Decor=styleanddécor
         )
         addnew.save()
         messages.success(request,f'Blog - {blogname} added.')

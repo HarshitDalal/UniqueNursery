@@ -7,10 +7,10 @@ from ckeditor.fields import RichTextField
 class WriteBlogForm(forms.ModelForm):
     Plant_Essentials= RichTextField()
     Common_Problems= RichTextField()
-    Style_and_Décor= RichTextField()
+    Style_and_Decor= RichTextField()
     class Meta:
         model = Blogs
-        fields = ('Plant_Essentials','Common_Problems','Style_and_Décor')
+        fields = ('Plant_Essentials','Common_Problems','Style_and_Decor')
 
 class ContactForm(forms.ModelForm):
     class Meta:

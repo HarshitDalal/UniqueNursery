@@ -87,7 +87,7 @@ class Blogs(models.Model):
     Second_Img = CloudinaryField('Second_Img',folder='nursery/Blog_Second_Image/', use_filename = True,unique_filename = False)
     Plant_Essentials =RichTextField(blank=True,null=True)
     Common_Problems =RichTextField(blank=True,null=True)
-    Style_and_Décor =RichTextField(blank=True,null=True)
+    Style_and_Decor =RichTextField(blank=True,null=True)
 
     def __str__(self):
         detail = f'{self.Blog_Name} wrote by {self.Author}'
