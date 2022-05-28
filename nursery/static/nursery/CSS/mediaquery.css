@@ -300,11 +300,11 @@
     height: 50vh;
     overflow: hidden;
   }
-  body .profilesection .block .some {
-    padding: 0.5rem 4.5rem;
+  body .profilesection .block .some .btn {
+    padding: 0.5rem 2.5rem;
   }
-  body .profilesection .block .some:nth-child(1) {
-    padding: 0.5rem 9rem;
+  body .profilesection .block .some .btn:nth-child(1) {
+    padding: 0.5rem 7rem;
   }
   body .profilesection .block .detailform {
     width: 100%;
