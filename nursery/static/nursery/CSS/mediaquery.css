@@ -639,6 +639,18 @@
   body .writeblogsection .writeblogdetail .form .boxs .boxy .cont .content p {
     font-size: 1.4rem;
   }
+  body .addproduct .productpricedetail .form .infox,
+  body .addproduct .writeblogdetail .form .infox,
+  body .writeblogsection .productpricedetail .form .infox,
+  body .writeblogsection .writeblogdetail .form .infox {
+    padding: 0;
+  }
+  body .addproduct .productpricedetail .form .infox .infoy,
+  body .addproduct .writeblogdetail .form .infox .infoy,
+  body .writeblogsection .productpricedetail .form .infox .infoy,
+  body .writeblogsection .writeblogdetail .form .infox .infoy {
+    padding: 0;
+  }
   body .addproduct .productpricedetail .form .infox .infoy .cont h2,
   body .addproduct .writeblogdetail .form .infox .infoy .cont h2,
   body .writeblogsection .productpricedetail .form .infox .infoy .cont h2,
@@ -657,7 +669,8 @@
   body .writeblogsection .writeblogdetail .form .infox .infoy .cont .django-ckeditor-widget div#cke_id_Plant_Essentials,
   body .writeblogsection .writeblogdetail .form .infox .infoy .cont .django-ckeditor-widget div#cke_id_Common_Problems,
   body .writeblogsection .writeblogdetail .form .infox .infoy .cont .django-ckeditor-widget div#cke_id_Style_and_Décor {
-    width: 200px;
+    width: 260px !important;
+    padding: 0;
   }
   body .addtocartsection .heading h1,
   body .ordersection .heading h1 {

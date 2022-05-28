@@ -630,7 +630,9 @@
                     }
 
                     .infox {
+                        padding: 0;
                         .infoy {
+                            padding: 0;
                             .cont {
                                 h2 {
                                     text-indent: 0;
@@ -641,7 +643,8 @@
                                     div#cke_id_Plant_Essentials,
                                     div#cke_id_Common_Problems,
                                     div#cke_id_Style_and_Décor {
-                                        width: 200px;
+                                        width: 260px !important;
+                                        padding: 0;
                                     }
                                 }
                             }
