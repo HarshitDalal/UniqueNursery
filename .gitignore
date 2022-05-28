@@ -6,7 +6,7 @@ __pycache__/
 media
 SwiperJs/
 imp.json
-imp.txt
+important.txt
 */migrations/**
 !*/migrations
 !*/migrations/__init__.py

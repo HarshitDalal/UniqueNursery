@@ -1,9 +1,0 @@
-SECRET_KEY = 'django-insecure-oy+*ca%)&%7@e4-o(^^9kr61cf2f(5=b3n#rl8k4xeg=*#)m&='
-EMAIL_HOST_USER = "dgmarket11@gmail.com"
-EMAIL_HOST_PASSWORD = "harshit70"
-cloudinary.config( 
-  cloud_name = "market21", 
-  api_key = "737594626935518",
-  api_secret = "jHLCb0g2WHIhEY8ShXNMellHqrU",
-  secure = True,
-)
