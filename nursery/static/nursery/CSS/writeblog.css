@@ -333,3 +333,7 @@
   font: 800 3rem var(--font1);
   text-indent: 3rem;
 }
+
+.writeblogsection .writeblogdetail .form .infox .infoy .cont .django-ckeditor-widget div#cke_id_Plant_Essentials {
+  width: 1000px !important;
+}

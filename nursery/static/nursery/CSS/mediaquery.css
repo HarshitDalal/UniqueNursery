@@ -644,6 +644,12 @@
   body .writeblogsection .writeblogdetail .form .infox .infoy .cont h2 {
     text-indent: 0;
   }
+  body .addproduct .productpricedetail .form .infox .infoy .cont .django-ckeditor-widget div#cke_id_Plant_Essentials,
+  body .addproduct .writeblogdetail .form .infox .infoy .cont .django-ckeditor-widget div#cke_id_Plant_Essentials,
+  body .writeblogsection .productpricedetail .form .infox .infoy .cont .django-ckeditor-widget div#cke_id_Plant_Essentials,
+  body .writeblogsection .writeblogdetail .form .infox .infoy .cont .django-ckeditor-widget div#cke_id_Plant_Essentials {
+    width: 200px;
+  }
   body .addtocartsection .heading h1,
   body .ordersection .heading h1 {
     font-size: 2rem;

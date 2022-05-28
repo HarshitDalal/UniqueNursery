@@ -633,6 +633,12 @@
                                 h2 {
                                     text-indent: 0;
                                 }
+                                .django-ckeditor-widget{
+
+                                    div#cke_id_Plant_Essentials {
+                                        width: 200px;
+                                    }
+                                }
                             }
                         }
                     }
