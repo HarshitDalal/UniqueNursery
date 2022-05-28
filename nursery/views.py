@@ -1,4 +1,5 @@
-from datetime import datetime
+from datetime import datetime,timedelta
+import pytz
 from django.shortcuts import render,redirect
 from nursery.models import ContactUs, UserDetails,ProductDetail,AddToCart,Order,Blogs
 from nursery.forms import ContactForm ,RegistrationForm, UserDetailsForm, AdminProfileForm,WriteBlogForm
@@ -22,7 +23,7 @@ Html Template Path
 Context Is A Dictionary That Use In Html Template
 
 """
-def html_email_Sanding(subject,html_template_path,reciver_emails,context_dict,attech_d=False,sender_email=settings.EMAIL_HOST_USER,replay_email=settings.EMAIL_HOST_USER):
+def html_email_Sanding(subject,html_template_path,reciver_emails,context_dict,sender_email=settings.EMAIL_HOST_USER,replay_email=settings.EMAIL_HOST_USER):
     email_html_template = get_template(html_template_path).render(context_dict)
     email_message = EmailMessage(
         subject,
@@ -32,8 +33,6 @@ def html_email_Sanding(subject,html_template_path,reciver_emails,context_dict,at
         reply_to=[sender_email]
     )
     email_message.content_subtype = 'html'
-    if attech_d:
-        email_message.attach(attech_d.name,attech_d.read(),attech_d.content_type)
     yes = email_message.send(fail_silently=True)
     return yes
 
@@ -182,17 +181,18 @@ def addtocart(request):
                 pincode = request.user.userdetails.Pincode
                 mobile = request.user.userdetails.Mobile
                 name = product[0].Product_Name
-                img = product[0].Product_Img
+                img = product[0].Second_Img.url
                 subject = f'{name} - Order Placed'
                 html_template_path = 'email/order_email.html'
                 content_html = {
                     'product_name':name,
-                    'address':f"{address}<br><br>{pincode}",
+                    'address':f"{address}\n{pincode}",
                     'quantity':quantity,
                     'price':price,
-                    'mobile':mobile
+                    'mobile':mobile,
+                    'img':img
                 }
-                yes = html_email_Sanding(subject=subject,html_template_path=html_template_path,reciver_emails=[to],attech_d=img,context_dict=content_html)
+                yes = html_email_Sanding(subject=subject,html_template_path=html_template_path,reciver_emails=[to],context_dict=content_html)
                 
                 # Html Template Email Send
                 if yes:
@@ -212,7 +212,10 @@ def orders(request):
     if request.method =="POST":
         product_id = request.POST['prid']
         ord = Order.objects.get(id=product_id)
-        ord.update(Order_Cancel_Position=True)
+        ord.Order_Cancel_Position=True
+        ord.save()
+    p_id = Order.objects.filter(Order_Cancel_Position=True)
+    p_id.delete()
     return render(request,'nursery/order.html',{'orders':orders})
 
 """

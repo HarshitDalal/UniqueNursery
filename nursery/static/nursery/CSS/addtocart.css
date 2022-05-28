@@ -116,8 +116,7 @@
 }
 
 .addtocartsection .form .boxx .button input[type=submit], .addtocartsection .form .boxx .button h1, .ordersection .form .boxx .button input[type=submit], .ordersection .form .boxx .button h1 {
-  width: 50%;
-  margin: 1rem 0;
+  width: 100%;
   padding: 1rem;
   border: none;
   font: 700 2rem var(--font2);

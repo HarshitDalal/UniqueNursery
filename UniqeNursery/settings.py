@@ -28,7 +28,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECRET_KEY = os.environ['SECRET_KEY']
 SECRET_KEY = 'django-insecure-oy+*ca%)&%7@e4-o(^^9kr61cf2f(5=b3n#rl8k4xeg=*#)m&='
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ["uniqenursery.herokuapp.com","localhost"]
 
@@ -132,7 +132,9 @@ TIME_ZONE = 'Asia/Kolkata'
 
 USE_I18N = True
 
-USE_TZ = True
+USE_L10N = True
+
+USE_TZ = False
 
 
 # Static files (CSS, JavaScript, Images)
