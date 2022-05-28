@@ -564,6 +564,15 @@
   body .writeblogsection .writeblogdetail .form .price .btn {
     width: 85%;
   }
+  body .addproduct .productpricedetail .form .line,
+  body .addproduct .writeblogdetail .form .line,
+  body .writeblogsection .productpricedetail .form .line,
+  body .writeblogsection .writeblogdetail .form .line {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
   body .addproduct .productpricedetail .form .productdesc p,
   body .addproduct .writeblogdetail .form .productdesc p,
   body .writeblogsection .productpricedetail .form .productdesc p,

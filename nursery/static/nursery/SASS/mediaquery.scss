@@ -576,7 +576,9 @@
                         }
 
                     }
-
+                    .line{
+                        flex-direction: column;
+                    }
                     .productdesc {
                         p {
                             font-size: 2rem;
