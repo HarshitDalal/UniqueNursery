@@ -7,6 +7,11 @@
             .manu-icon{
                 display: flex !important;
             }
+            .logo{
+                b{
+                    width: 10.5rem;
+                }
+            }
             .navigation.manu-active{
                 position: absolute;
                 display: inline-flex;
@@ -236,7 +241,7 @@
                     margin-bottom: 1rem;
                     .content{
                         font-size: 1.6rem;
-                        height: 14rem;
+                        height: 11rem;
                     }
                     a{
                         font-size: 1.5rem;
@@ -285,13 +290,31 @@
         .block{
             margin: 3rem 0;
             width: 100%;
+            .imgbox{
+                img{
+                    width: 50%;
+                    height: 14rem;
+                }
+            }
             &:nth-child(1){
                 width: 100%;
                 height: 50vh;
+                overflow: hidden;
+            }
+            .some{
+                padding: 0.5rem 4.5rem;
+                &:nth-child(1){
+                    padding: 0.5rem 9rem;
+                }
             }
             .detailform{
                 width: 100%;
                 padding: 2rem 0;
+                .form{
+                    label{
+                        width: 100%;
+                    }
+                }
             }
         }
     }

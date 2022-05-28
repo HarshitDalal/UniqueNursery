@@ -7,6 +7,9 @@
     display: -ms-flexbox !important;
     display: flex !important;
   }
+  .header .nav .logo b {
+    width: 10.5rem;
+  }
   .header .nav .navigation.manu-active {
     position: absolute;
     display: -webkit-inline-box;
@@ -224,7 +227,7 @@
   }
   .blogsection .swiper .swiper-wrapper .box .content {
     font-size: 1.6rem;
-    height: 14rem;
+    height: 11rem;
   }
   .blogsection .swiper .swiper-wrapper .box a {
     font-size: 1.5rem;
@@ -268,13 +271,27 @@
     margin: 3rem 0;
     width: 100%;
   }
+  .profilesection .block .imgbox img {
+    width: 50%;
+    height: 14rem;
+  }
   .profilesection .block:nth-child(1) {
     width: 100%;
     height: 50vh;
+    overflow: hidden;
+  }
+  .profilesection .block .some {
+    padding: 0.5rem 4.5rem;
+  }
+  .profilesection .block .some:nth-child(1) {
+    padding: 0.5rem 9rem;
   }
   .profilesection .block .detailform {
     width: 100%;
     padding: 2rem 0;
+  }
+  .profilesection .block .detailform .form label {
+    width: 100%;
   }
   /* 
         profile section media query done
