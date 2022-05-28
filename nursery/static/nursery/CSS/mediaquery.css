@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @media screen and (max-width: 768px) {
   body {
     /* 
@@ -645,9 +646,17 @@
     text-indent: 0;
   }
   body .addproduct .productpricedetail .form .infox .infoy .cont .django-ckeditor-widget div#cke_id_Plant_Essentials,
+  body .addproduct .productpricedetail .form .infox .infoy .cont .django-ckeditor-widget div#cke_id_Common_Problems,
+  body .addproduct .productpricedetail .form .infox .infoy .cont .django-ckeditor-widget div#cke_id_Style_and_Décor,
   body .addproduct .writeblogdetail .form .infox .infoy .cont .django-ckeditor-widget div#cke_id_Plant_Essentials,
+  body .addproduct .writeblogdetail .form .infox .infoy .cont .django-ckeditor-widget div#cke_id_Common_Problems,
+  body .addproduct .writeblogdetail .form .infox .infoy .cont .django-ckeditor-widget div#cke_id_Style_and_Décor,
   body .writeblogsection .productpricedetail .form .infox .infoy .cont .django-ckeditor-widget div#cke_id_Plant_Essentials,
-  body .writeblogsection .writeblogdetail .form .infox .infoy .cont .django-ckeditor-widget div#cke_id_Plant_Essentials {
+  body .writeblogsection .productpricedetail .form .infox .infoy .cont .django-ckeditor-widget div#cke_id_Common_Problems,
+  body .writeblogsection .productpricedetail .form .infox .infoy .cont .django-ckeditor-widget div#cke_id_Style_and_Décor,
+  body .writeblogsection .writeblogdetail .form .infox .infoy .cont .django-ckeditor-widget div#cke_id_Plant_Essentials,
+  body .writeblogsection .writeblogdetail .form .infox .infoy .cont .django-ckeditor-widget div#cke_id_Common_Problems,
+  body .writeblogsection .writeblogdetail .form .infox .infoy .cont .django-ckeditor-widget div#cke_id_Style_and_Décor {
     width: 200px;
   }
   body .addtocartsection .heading h1,

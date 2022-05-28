@@ -1,3 +1,4 @@
+@charset "UTF-8";
 .writeblogsection {
   -webkit-box-shadow: var(--boxshadow1);
           box-shadow: var(--boxshadow1);
@@ -105,7 +106,9 @@
   margin-bottom: 1rem;
 }
 
-.writeblogsection .writeblogdetail .form input, .writeblogsection .writeblogdetail .form textarea, .writeblogsection .writeblogdetail .form select {
+.writeblogsection .writeblogdetail .form input,
+.writeblogsection .writeblogdetail .form textarea,
+.writeblogsection .writeblogdetail .form select {
   outline: none;
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
@@ -334,6 +337,8 @@
   text-indent: 3rem;
 }
 
-.writeblogsection .writeblogdetail .form .infox .infoy .cont .django-ckeditor-widget div#cke_id_Plant_Essentials {
+.writeblogsection .writeblogdetail .form .infox .infoy .cont .django-ckeditor-widget div#cke_id_Plant_Essentials,
+.writeblogsection .writeblogdetail .form .infox .infoy .cont .django-ckeditor-widget div#cke_id_Common_Problems,
+.writeblogsection .writeblogdetail .form .infox .infoy .cont .django-ckeditor-widget div#cke_id_Style_and_Décor {
   width: 1000px !important;
 }

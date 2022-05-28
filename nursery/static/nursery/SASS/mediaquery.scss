@@ -358,10 +358,10 @@
                 }
 
                 .some {
-                    .btn{
+                    .btn {
 
                         padding: 0.5rem 2.5rem;
-    
+
                         &:nth-child(1) {
                             padding: 0.5rem 7rem;
                         }
@@ -576,9 +576,11 @@
                         }
 
                     }
-                    .line{
+
+                    .line {
                         flex-direction: column;
                     }
+
                     .productdesc {
                         p {
                             font-size: 2rem;
@@ -633,9 +635,12 @@
                                 h2 {
                                     text-indent: 0;
                                 }
-                                .django-ckeditor-widget{
 
-                                    div#cke_id_Plant_Essentials {
+                                .django-ckeditor-widget {
+
+                                    div#cke_id_Plant_Essentials,
+                                    div#cke_id_Common_Problems,
+                                    div#cke_id_Style_and_Décor {
                                         width: 200px;
                                     }
                                 }
