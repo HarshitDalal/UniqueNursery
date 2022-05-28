@@ -18,7 +18,7 @@
             {% csrf_token %}
             <input type="text" style="display:none;" name="prid" id="prid{{i.id}}" value="{{i.id}}">
             <div class="boxx">
-                <img src="/media/{{i.Product.Second_Img}}" alt="{{i.Product.Product_Name}}">
+                <img src="{{i.Product.Second_Img.url}}" alt="{{i.Product.Product_Name}}">
                 <div class="boxy">
                     <input type="text" name="name" id="name{{i.id}}" readonly required value="{{i.Product.Product_Name}}">
                     <input type="text" name="name" id="type{{i.id}}" readonly required value="{{i.Product.Plant_Type}}">
