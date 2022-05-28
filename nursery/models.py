@@ -47,7 +47,6 @@ class ProductDetail(models.Model):
         ('Air Purifier Plant','Air Purifier Plant'),
         ('Low Mantenance Plant','Low Mantenance Plant')
     }
-    Product_Img = CloudinaryField('Product_Img',folder='nursery/Product_Images/', use_filename = True,unique_filename = False)
     Product_Name = models.CharField(max_length=150)
     Plant_Type = models.CharField(max_length=50,choices=planttype)
     Real_Price = models.CharField(max_length=100)
@@ -58,8 +57,9 @@ class ProductDetail(models.Model):
     Where_To_Grow = models.CharField(max_length=100)
     Maintenance = models.CharField(max_length=100)
     Special_Feature = models.CharField(max_length=100)
+    Product_Img = CloudinaryField('Product_Img',folder='nursery/Product_Images/', use_filename = True,unique_filename = False)
     Second_Img = CloudinaryField('Second_Img',folder='nursery/Product_Second_Image/', use_filename = True,unique_filename = False)
-
+    
     def __str__(self):
         return str(self.Product_Name)
     
@@ -73,7 +73,6 @@ class Blogs(models.Model):
         ('Air Purifier Plant','Air Purifier Plant'),
         ('Low Mantenance Plant','Low Mantenance Plant')
     }
-    Main_Img = CloudinaryField('Main_Img',folder='nursery/Blog_Images/', use_filename = True,unique_filename = False)
     Blog_Name = models.CharField(max_length=150)
     Author = models.CharField(max_length=100)
     Date = models.DateTimeField(auto_now=True)
@@ -84,6 +83,7 @@ class Blogs(models.Model):
     Where_To_Grow = models.CharField(max_length=100)
     Maintenance = models.CharField(max_length=100)
     Special_Feature = models.CharField(max_length=100)
+    Main_Img = CloudinaryField('Main_Img',folder='nursery/Blog_Images/', use_filename = True,unique_filename = False)
     Second_Img = CloudinaryField('Second_Img',folder='nursery/Blog_Second_Image/', use_filename = True,unique_filename = False)
     Plant_Essentials =RichTextField(blank=True,null=True)
     Common_Problems =RichTextField(blank=True,null=True)

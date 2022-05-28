@@ -19,143 +19,152 @@
             padding: 16px 0;
         }
 
-        .wrapper {
-            height: 420px;
-            width: 654px;
-            margin: 50px auto;
-            border-radius: 7px 7px 7px 7px;
-            /* VIA CSS MATIC https://goo.gl/cIbnS */
-            -webkit-box-shadow: 0px 14px 32px 0px rgba(0, 0, 0, 0.15);
-            -moz-box-shadow: 0px 14px 32px 0px rgba(0, 0, 0, 0.15);
-            box-shadow: 0px 14px 32px 0px rgba(0, 0, 0, 0.15);
-        }
-
-        .product-img {
-            float: left;
-            height: 420px;
-            width: 327px;
-        }
-
-        .product-img img {
-            border-radius: 7px 0 0 7px;
-        }
-
-        .product-info {
-            float: left;
-            height: 420px;
-            width: 327px;
-            border-radius: 0 7px 10px 7px;
-            background-color: #ffffff;
-        }
-
-        .product-text {
-            height: 300px;
-            width: 327px;
-        }
-
-        .product-text h1 {
-            margin: 0 0 0 38px;
-            padding-top: 52px;
-            font-size: 34px;
-            color: #474747;
-        }
-
-        .product-text h1,
-        .product-price-btn p {
-            font-family: 'Bentham', serif;
-        }
-
-        .product-text h2 {
-            margin: 0 0 47px 38px;
-            font-size: 13px;
-            font-family: 'Raleway', sans-serif;
-            font-weight: 400;
-            text-transform: uppercase;
-            color: #d2d2d2;
-            letter-spacing: 0.2em;
-        }
-
-        .product-text p {
-            height: 110px;
-            margin: 0 0 0 38px;
-            font-family: 'Playfair Display', serif;
-            color: #8d8d8d;
-            line-height: 0.7em;
-            font-size: 15px;
-            font-weight: lighter;
-            overflow: hidden;
-        }
-
-        .product-price-btn {
-            height: 103px;
-            width: 327px;
-            margin-top: 17px;
-            position: relative;
-        }
-
-        .product-price-btn p {
-            display: inline-block;
-            position: absolute;
-            top: -15px;
-            height: 50px;
-            font-family: 'Trocchi', serif;
-            margin: 0 0 0 38px;
-            font-size: 28px;
-            font-weight: lighter;
-            color: #474747;
-        }
-
-        span {
-            display: inline-block;
-            height: 50px;
-            font-family: 'Suranna', serif;
-            font-size: 34px;
-        }
-
-        .product-price-btn button {
-            float: right;
-            display: inline-block;
-            height: 40px;
-            width: 106px;
-            margin: 0 40px 0 16px;
+        * {
+            -webkit-box-sizing: border-box;
             box-sizing: border-box;
-            border: transparent;
-            border-radius: 60px;
-            font-family: 'Raleway', sans-serif;
-            font-size: 14px;
-            font-weight: 500;
-            text-align: center;
-            text-transform: uppercase;
-            text-decoration: none;
-            letter-spacing: 0.2em;
-            color: #ffffff;
-            background-color: #9cebd5;
-            cursor: pointer;
-            outline: none;
+            margin: 0;
+            padding: 0;
         }
 
-        .product-price-btn button:hover {
-            background-color: #79b0a1;
+
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .product-card {
+            width: 380px;
+            position: relative;
+            box-shadow: 0 2px 7px #dfdfdf;
+            margin: 50px auto;
+            border-radius: 10px;
+            background: #fafafa;
+        }
+
+        .badge {
+            position: absolute;
+            left: 0;
+            top: 20px;
+            text-transform: uppercase;
+            font-size: 13px;
+            font-weight: 700;
+            background: red;
+            border-radius: 8px 8px 0 0;
+            color: #fff;
+            padding: 3px 10px;
+        }
+
+        .product-tumb {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 300px;
+            padding: 10px;
+            background: #f0f0f0;
+        }
+
+        .product-tumb img {
+            max-width: 100%;
+            max-height: 100%;
+            border-radius: 10px;
+        }
+
+        .product-details {
+            padding: 30px;
+        }
+
+        .product-catagory {
+            display: block;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: #ccc;
+            margin-bottom: 18px;
+        }
+
+        .product-details h2 a {
+            font-weight: 500;
+            display: block;
+            margin-bottom: 18px;
+            text-transform: uppercase;
+            color: #363636;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .product-details h2 a:hover {
+            color: #fbb72c;
+        }
+
+        .product-details p {
+            font-size: 15px;
+            line-height: 22px;
+            margin-bottom: 18px;
+            color: #999;
+        }
+
+        .product-bottom-details {
+            overflow: hidden;
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+        }
+
+        .product-bottom-details div {
+            float: left;
+            width: 50%;
+        }
+
+        .product-price {
+            font-size: 18px;
+            color: #fbb72c;
+            font-weight: 600;
+        }
+
+        .product-price small {
+            font-size: 80%;
+            font-weight: 400;
+            text-decoration: line-through;
+            display: inline-block;
+            margin-right: 5px;
+        }
+
+        .product-links {
+            text-align: right;
+        }
+
+        .product-links a {
+            display: inline-block;
+            margin-left: 5px;
+            color: #f8c387;
+            transition: 0.3s;
+            font-size: 17px;
+        }
+
+        .product-links a:hover {
+            color: #fbb72c;
         }
     </style>
 </head>
 
 <body>
     <div class="body1">
-        <div class="wrapper">
-            <div class="product-img">
-                <img src="{{img}}" height="420" width="327">
+        <div class="product-card">
+            <div class="badge">{{pos}}</div>
+            <div class="product-tumb">
+                <img src="{{img}}" alt="">
             </div>
-            <div class="product-info">
-                <div class="product-text">
-                    <h1>{{product_name}}</h1>
-                    <h2>{{quantity}}</h2>
-                    <p>Delivery Address - {{address}}</p>
-                    <p>Contact Number - {{mobile}}</p>
-                </div>
-                <div class="product-price-btn">
-                    <p><span>{{price}}</span><br> <b style="color:green;">COD</b></p><br>
-                    <button onclick="location.href='https://uniqenursery.herokuapp.com/order';" class="button">Check</button>
+            <div class="product-details">
+                <span class="product-catagory">{{plant_type}}</span>
+                <h2><a href="{{view}}">{{product_name}}</a></h2>
+                <p>{{address}} <br> {{mobile}} <br> Your Pay Amount - <span class="col" style="color: #fbb72c;">{{price}}</span> <br> <span class="col" style="color: #fbb72c;">{{quantity}}</span></p>
+                <div class="product-bottom-details">
+                    <div class="product-price"><small>₹ {{real}}</small>₹ {{down}}</div>
+                    <div class="product-links">
+                        <a href="{{view}}">{{word}}</a>
+                    </div>
                 </div>
             </div>
         </div>

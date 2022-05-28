@@ -1,5 +1,5 @@
 from datetime import datetime,timedelta
-import pytz
+import pytz,time
 from django.shortcuts import render,redirect
 from nursery.models import ContactUs, UserDetails,ProductDetail,AddToCart,Order,Blogs
 from nursery.forms import ContactForm ,RegistrationForm, UserDetailsForm, AdminProfileForm,WriteBlogForm
@@ -34,7 +34,10 @@ def html_email_Sanding(subject,html_template_path,reciver_emails,context_dict,se
     )
     email_message.content_subtype = 'html'
     yes = email_message.send(fail_silently=True)
-    return yes
+    if yes == 0:
+        return False
+    else:
+        return True
 
 '''
 Home Page Carry Resent Added Four Blogs And Products
@@ -159,11 +162,10 @@ def addtocart(request):
     if request.method == "POST":
         if 'Order' in request.POST:
             buyer = request.user.userdetails
-            product_id = request.POST['prid']
+            product_id = request.POST['prid'].split(',')[0]
             quantity = request.POST['quantity']
             price = request.POST['price']
             product = ProductDetail.objects.filter(id=product_id)
-            print(product[0])
             if request.user.userdetails.Address == " ":
                messages.error(request,"First Fill Your Personal Details In Your Profile.")
             else: 
@@ -174,7 +176,8 @@ def addtocart(request):
                     Product_Amount = price[2:],
                 )
                 od.save()
-
+                messages.success(request,"Your Order Placed.\n Pay After Delivery.\n Prepaid Not Available.")
+                messages.warning(request,"Check Mail For Order Detail\n If Mail Not Recive Change Your Mail")
                 # Html Template Email Sending Process
                 to = request.user.userdetails.Email
                 address = request.user.userdetails.Address
@@ -182,28 +185,33 @@ def addtocart(request):
                 mobile = request.user.userdetails.Mobile
                 name = product[0].Product_Name
                 img = product[0].Second_Img.url
+                plant_type = product[0].Plant_Type
                 subject = f'{name} - Order Placed'
                 html_template_path = 'email/order_email.html'
                 content_html = {
                     'product_name':name,
-                    'address':f"{address}\n{pincode}",
-                    'quantity':quantity,
-                    'price':price,
-                    'mobile':mobile,
-                    'img':img
+                    'address':f" Delivery - {address} , {pincode}",
+                    'quantity': quantity,
+                    'real': product[0].Real_Price,
+                    'down': product[0].Discount_Price,
+                    'price': price,
+                    'mobile':f'Your Contact - {mobile}',
+                    'img':img,
+                    'plant_type': plant_type,
+                    'pos': "Shipped",
+                    'word':"View",
+                    'view': f"""https://uniqenursery.herokuapp.com/product/productdetail/{product_id}{plant_type}"""
                 }
-                yes = html_email_Sanding(subject=subject,html_template_path=html_template_path,reciver_emails=[to],context_dict=content_html)
-                
-                # Html Template Email Send
-                if yes:
-                    messages.success(request,"Your Order Placed.\n Pay After Delivery.\n Prepaid Not Available.\n Your Mail Adderss Is Incorrect.")
-                else:
-                    messages.success(request,"Your Order Placed.\n Pay After Delivery.\n Prepaid Not Available.\n Check Mail For Confirmation.")
-                return redirect('/')
+                html_email_Sanding(subject=subject,html_template_path=html_template_path,reciver_emails=[to],context_dict=content_html)
+                product_id = request.POST['prid'].split(',')[1]
+                addcart = AddToCart.objects.get(id=product_id)
+                addcart.delete()
+                return redirect('/order')
         elif 'Remove' in request.POST:
-            product_id = request.POST['prid']
+            product_id = request.POST['prid'].split(',')[1]
             addcart = AddToCart.objects.get(id=product_id)
-            addcart.delete()        
+            addcart.delete()  
+            messages.success(request,"Item Removed From Your Cart.")      
     return render(request,'nursery/addtocart.html',{'added':cart})
 
 @login_required(login_url='/login/')
@@ -214,6 +222,38 @@ def orders(request):
         ord = Order.objects.get(id=product_id)
         ord.Order_Cancel_Position=True
         ord.save()
+        messages.success(request,"Order Canceled Successfuly.")
+        # Html Template Email Sending Process
+        to = request.user.userdetails.Email
+        address = request.user.userdetails.Address
+        pincode = request.user.userdetails.Pincode
+        mobile = request.user.userdetails.Mobile
+        name = orders[0].Product.Product_Name
+        img = orders[0].Product.Second_Img.url
+        plant_type = orders[0].Product.Plant_Type
+        subject = f'{name} - Order Canceled'
+        html_template_path = 'email/order_email.html'
+        content_html = {
+            'product_name':name,
+            'address':f" Delivery - {address} , {pincode}",
+            'quantity': f'Quantity - {orders[0].Product_Quantity}',
+            'real': orders[0].Product.Real_Price,
+            'down': orders[0].Product.Discount_Price,
+            'price': f' ₹ {orders[0].Product_Amount}',
+            'mobile':f'Your Contact - {mobile}',
+            'img':img,
+            'plant_type': plant_type,
+            'pos': "Order Cancel",
+            'view': f"""https://uniqenursery.herokuapp.com/product""",
+            'word':"Products"
+        }
+        yes = html_email_Sanding(subject=subject,html_template_path=html_template_path,reciver_emails=[to],context_dict=content_html)
+        
+        # Html Template Email Send
+        if yes:
+            messages.success(request,"Your Order Placed.\n Pay After Delivery.\n Prepaid Not Available.\n Your Mail Adderss Is Incorrect.")
+        else:
+            messages.success(request,"Your Order Placed.\n Pay After Delivery.\n Prepaid Not Available.\n Check Mail For Confirmation.")
     p_id = Order.objects.filter(Order_Cancel_Position=True)
     p_id.delete()
     return render(request,'nursery/order.html',{'orders':orders})

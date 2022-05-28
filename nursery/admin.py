@@ -12,7 +12,7 @@ class ContactUsAdmin(admin.ModelAdmin):
 
 @admin.register(ProductDetail)
 class ProductDetailAdmin(admin.ModelAdmin):
-    list_display = ['Product_Name','Real_Price','Plant_Type','Where_To_Grow']
+    list_display = ['Product_Name','id','Real_Price','Plant_Type','Where_To_Grow']
 
 @admin.register(AddToCart)
 class AddToCartAdmin(admin.ModelAdmin):

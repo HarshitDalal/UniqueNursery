@@ -16,7 +16,7 @@
     {% for i in added %}
         <form action="" class="form" method="post">
             {% csrf_token %}
-            <input type="text" style="display:none;" name="prid" id="prid{{i.id}}" value="{{i.id}}">
+            <input type="text" style="display:none;" name="prid" id="prid{{i.id}}" value="{{i.Product.id}},{{i.id}}">
             <div class="boxx">
                 <img src="{{i.Product.Second_Img.url}}" alt="{{i.Product.Product_Name}}">
                 <div class="boxy">
