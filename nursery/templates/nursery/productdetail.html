@@ -45,7 +45,11 @@
                     {{atcform.5}}
                     <span id="plus">+</span>
                 </label>
-                <input class="btn" id="btn" type="submit" value="Add To Cart">
+                {% if request.user.userdetails.User %}
+                    <input class="btn" id="btn" type="submit" value="Add To Cart">
+                {% else %}
+                    <input class="btn" id="btn" type="submit" disabled="true" value="Add To Cart">
+                {% endif %}
             </form>
         </div>
         <div class="productdesc">
@@ -112,7 +116,7 @@
         <!-- Additional required wrapper -->
         <div class="swiper-wrapper">
             <!-- Slides -->
-            <div class="box swiper-slide">
+            <div class="box swiper-slide" onclick="location.href='/product/productdetail/{{i.0.id}}{{i.0.Plant_Type}}';" style="cursor: pointer;">
                 <img src="{{i.0.Product_Img.url}}" alt="">
                 <div class="name">
                     <div class="nameprice">
@@ -128,11 +132,11 @@
                         </div>
                     </div>
                     <!-- <a href="" class="btn"><i class="fas fa-cart-plus"></i></a> -->
-                    <a href="/product/productdetail/{{i.0.id}}{{i.0.Plant_Type}}" class="btn"><i class="fa fa-shopping-cart"></i></a>
+                    <a href="/product/productdetail/{{j.id}}{{j.Plant_Type}}" class="btn"><i class="fa fa-shopping-cart"></i></a>
                 </div>
             </div>
             {% for j in i|slice:"1:" %}
-            <div class="box swiper-slide">
+            <div class="box swiper-slide" onclick="location.href='/product/productdetail/{{j.id}}{{j.Plant_Type}}';" style="cursor: pointer;">
                 <img src="{{j.Product_Img.url}}" alt="">
                 <div class="name">
                     <div class="nameprice">

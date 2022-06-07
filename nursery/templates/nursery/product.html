@@ -18,7 +18,7 @@
         <!-- Additional required wrapper -->
         <div class="swiper-wrapper">
             <!-- Slides -->
-            <div class="box swiper-slide">
+            <div class="box swiper-slide" onclick="location.href='/product/productdetail/{{i.0.id}}{{i.0.Plant_Type}}';" style="cursor: pointer;">
                 <img src="{{i.0.Product_Img.url}}" alt="">
                 <div class="name">
                     <div class="nameprice">
@@ -37,7 +37,7 @@
                 </div>
             </div>
             {% for j in i|slice:"1:" %}
-            <div class="box swiper-slide">
+            <div class="box swiper-slide" onclick="location.href='/product/productdetail/{{i.0.id}}{{i.0.Plant_Type}}';" style="cursor: pointer;">
                 <img src="{{j.Product_Img.url}}" alt="">
                 <div class="name">
                     <div class="nameprice">

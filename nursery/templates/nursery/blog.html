@@ -19,7 +19,7 @@
         <!-- Additional required wrapper -->
         <div class="swiper-wrapper">
             <!-- Slides -->
-            <div class="swiper-slide box">
+            <div class="swiper-slide box" onclick="location.href='readblog/{{i.0.id}}{{i.0.Plant_Type}}';" style="cursor: pointer;">
                 <img src="{{i.0.Main_Img.url}}" alt="">
                 <p class="title">{{i.0.Blog_Name}}</p>
                 <p class="content">
@@ -28,7 +28,7 @@
                 <a href="readblog/{{i.0.id}}{{i.0.Plant_Type}}">Read More</a>
             </div>
             {% for j in i|slice:"1:" %}
-            <div class="swiper-slide box">
+            <div class="swiper-slide box" onclick="location.href='readblog/{{j.id}}{{j.Plant_Type}}';" style="cursor: pointer;">
                 <img src="{{j.Main_Img.url}}" alt="">
                 <span class="title">{{j.Blog_Name}}</span>
                 <p class="content">
