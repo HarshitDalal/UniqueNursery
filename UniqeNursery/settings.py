@@ -25,10 +25,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-# SECRET_KEY = os.environ['SECRET_KEY']
-SECRET_KEY = 'django-insecure-oy+*ca%)&%7@e4-o(^^9kr61cf2f(5=b3n#rl8k4xeg=*#)m&='
+SECRET_KEY = os.environ['SECRET_KEY']
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ["uniquenursery.herokuapp.com","localhost"]
 
@@ -163,25 +162,18 @@ MEDIA_ROOT = BASE_DIR / 'nursery/static/nursery/media'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-# EMAIL_HOST_USER = os.environ['EMAIL_HOST_USER']
-# EMAIL_HOST_PASSWORD = os.environ['EMAIL_HOST_PASSWORD']
-EMAIL_HOST_USER = "dgmarket11@gmail.com"
-EMAIL_HOST_PASSWORD = "harshit70"
+EMAIL_HOST_USER = os.environ['EMAIL_HOST_USER']
+EMAIL_HOST_PASSWORD = os.environ['EMAIL_HOST_PASSWORD']
+
 
 #Login Direction
 LOGIN_URL = '/login/'
 LOGIN_REDIRECT_URL = '/profile/'
 LOGOUT_REDIRECT_URL = '/login/'
 
-# cloudinary.config( 
-#   cloud_name = os.environ["cloud_name"], 
-#   api_key = os.environ['api_key'],
-#   api_secret = os.environ['api_secret'],
-#   secure = True,
-# )
 cloudinary.config( 
-  cloud_name = "market21", 
-  api_key = "737594626935518",
-  api_secret = "jHLCb0g2WHIhEY8ShXNMellHqrU",
+  cloud_name = os.environ["cloud_name"], 
+  api_key = os.environ['api_key'],
+  api_secret = os.environ['api_secret'],
   secure = True,
 )

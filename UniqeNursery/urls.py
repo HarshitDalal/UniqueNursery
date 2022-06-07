@@ -19,9 +19,9 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.views.static import serve
 
-admin.site.site_header = "UNIQE NURSERY ADMIN"
-admin.site.site_title = "UNIQE NURSERY ADMIN PORTAL"
-admin.site.index_title = "UNIQE NURSERY"
+admin.site.site_header = "UNIQUE NURSERY ADMIN"
+admin.site.site_title = "UNIQUE NURSERY ADMIN PORTAL"
+admin.site.index_title = "UNIQUE NURSERY"
 
 urlpatterns = [
     path('admin/', admin.site.urls),
