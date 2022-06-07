@@ -28,15 +28,15 @@
                 {% if i.Order_Cancel_Position %}
                     <h1>Canceled</h1>   
                 {% else %}
-                    {% if i.Delivery %}
+                    {% if i.Deliver %}
                         <h1>Delivered</h1>
                     {% else %}
                         <h1>Order Placed</h1>
+                        <form action="" method="post">
+                            {% csrf_token %}
+                            <input type="text" style="display:none;" name="prid" id="prid{{i.id}}" value="{{i.id}}">
+                            <input type="submit" value="Cancal">
                     {% endif %} 
-                    <form action="" method="post">
-                        {% csrf_token %}
-                        <input type="text" style="display:none;" name="prid" id="prid{{i.id}}" value="{{i.id}}">
-                        <input type="submit" value="Cancal">
                     </form>
                 {% endif %}
             </div>
