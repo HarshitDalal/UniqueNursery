@@ -30,7 +30,7 @@ SECRET_KEY = os.environ['SECRET_KEY']
 DEBUG = False
 
 # ALLOWED_HOSTS = ["uniquenursery-production.up.railway.app","localhost"]
-ALLOWED_HOSTS = ["polite-pasca-1d914e.netlify.app",'localhost']
+ALLOWED_HOSTS = ["uniquenursery.netlify.app",'localhost']
 
 
 # Application definition
