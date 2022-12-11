@@ -1,0 +1,30 @@
+{
+    "version" : 2,
+    "bulids" : [
+        {
+            "src" : "UniqeNursery/wsgi.py",
+            "use" : "@vercel/python",
+            "config" : {
+                "maxLambdaSize" : "15mb",
+                "runtime" : "python3.10"
+            }
+        },
+        {
+            "src" : "bulid.sh",
+            "use" : "@vercel/static-bulid",
+            "config" : {
+                "distDir" : "staticfiles"
+            }
+        }
+    ],
+    "routes" : [
+        {
+            "src" : "/static/(.*)",
+            "dest" : "/static/$1"
+        },
+        {
+            "src" : "/(.*)",
+            "dest" : "UniqeNursery/wsgi.py"
+        }
+    ]
+}
