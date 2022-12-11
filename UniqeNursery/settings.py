@@ -28,10 +28,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = "django-insecure-oy+*ca%)&%7@e4-o(^^9kr61cf2f(5=b3n#rl8k4xeg=*#)m&="
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 # ALLOWED_HOSTS = ["uniquenursery-production.up.railway.app","localhost"]
-ALLOWED_HOSTS = ["uniquenursery.netlify.app",'localhost']
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -64,7 +64,7 @@ ROOT_URLCONF = 'UniqeNursery.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -88,17 +88,6 @@ DATABASES = {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'UniqeNursery.sqlite3',
     },
-    #  'default': {  
-    #     'ENGINE': 'django.db.backends.mysql',  
-    #     'NAME': 'UNIQE NURSERY',  
-    #     'USER': 'root',  
-    #     'PASSWORD': '',  
-    #     'HOST': '127.0.0.1',  
-    #     'PORT': '3306',  
-    #     'OPTIONS': {  
-    #         'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"  
-    #     }  
-    # } 
 }
 
 
