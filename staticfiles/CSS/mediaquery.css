@@ -1,0 +1,720 @@
+@media screen and (max-width: 768px) {
+  body {
+    /* 
+        index page media query finish
+    
+        home media query
+    */
+    /* 
+        home section media query finish
+    
+        about section media query
+    */
+    /* 
+        about section media query finish
+    
+        contact section media query
+    */
+    /* 
+        contact section media query finish
+    
+        blog section media query
+    */
+    /* 
+        blog section media query finish
+
+        product section media query
+    */
+    /* 
+        product section media query finish
+    
+        profile section media query
+    */
+    /* 
+        profile section media query done
+
+        productdetail section media query
+    */
+    /* 
+        productdetail section media query finish
+        
+        form section media query
+    */
+    /* 
+        form section media query finish
+
+        addproduct section media query
+    */
+    /* 
+        add to cart and order media query
+    */
+  }
+  body .header .nav .navigation {
+    display: none;
+  }
+  body .header .nav .manu-icon {
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+  }
+  body .header .nav .logo b {
+    width: 11.5rem;
+  }
+  body .header .nav .navigation.manu-active {
+    position: absolute;
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    top: 7.3rem;
+    width: 97%;
+    left: 1.6%;
+    z-index: 9999;
+    text-align: left;
+    height: 30rem;
+  }
+  body .header .nav .navigation.manu-active ul {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    background: var(--navbg);
+    width: 100%;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    padding: 2rem 2.2rem;
+  }
+  body .header .nav .navigation.manu-active ul li {
+    margin: 1.6rem 0;
+  }
+  body .footer .foot {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: start !important;
+        -ms-flex-align: start !important;
+            align-items: flex-start !important;
+  }
+  body .footer .foot .logosmalldesc {
+    -ms-flex-preferred-size: 34rem !important;
+        flex-basis: 34rem !important;
+  }
+  body .footer .foot .logosmalldesc p {
+    font-size: 2.5rem !important;
+  }
+  body .footer .foot .social ul li a {
+    font-size: 2rem !important;
+  }
+  body .footer .foot .shortcut ul li a {
+    font-size: 2rem !important;
+  }
+  body .footer .copyright {
+    padding: 2rem 0;
+  }
+  body .footer .copyright p {
+    font-size: 1.8rem;
+  }
+  body .footer .copyright p a {
+    font-size: 1.8rem;
+  }
+  body .header .swiper {
+    height: 45vh;
+  }
+  body .header .swiper .swiper-wrapper .swiper-slide .info h2 {
+    font-size: 4rem;
+  }
+  body .header .swiper .swiper-wrapper .swiper-slide .info p {
+    font-size: 2rem;
+  }
+  body .header .swiper .swiper-wrapper .swiper-slide .info .btn {
+    padding: 1rem 2rem;
+  }
+  body .header .swiper .swiper-pagination-bullet-active {
+    height: 1.5rem;
+    width: 1.5rem;
+  }
+  body .header .swiper .swiper-pagination-bullet {
+    height: 1.5rem;
+    width: 1.5rem;
+  }
+  body .homesection .nursery {
+    padding: 1rem;
+  }
+  body .homesection .nursery .imge {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    padding: 1.3rem;
+    border-radius: 1rem;
+  }
+  body .homesection .nursery .imge .pera {
+    width: 100%;
+  }
+  body .homesection .nursery .imge .pera h1 {
+    text-align: center;
+  }
+  body .homesection .nursery .imge img {
+    width: 100%;
+    height: 23rem;
+  }
+  body .homesection .nursery .imge:nth-child(2) {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  body .homesection .blogs {
+    width: calc(100/1);
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    padding: 1rem;
+  }
+  body .homesection .blogs .box {
+    margin: .5rem;
+  }
+  body .homesection .products {
+    display: none;
+  }
+  body .aboutsection .infocontact {
+    min-height: 40vh;
+    padding: 0 2rem;
+  }
+  body .aboutsection .infocontact h1 {
+    font-size: 3rem;
+  }
+  body .aboutsection .infocontact p {
+    font-size: 1.4rem;
+    text-align: center;
+  }
+  body .aboutsection .aboutbox h1 {
+    font-size: 3rem;
+  }
+  body .aboutsection .aboutbox .about {
+    width: calc(100/1);
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    padding: 2rem .5rem;
+  }
+  body .aboutsection .aboutbox .about .box {
+    margin: 1rem .4rem;
+  }
+  body .aboutsection .aboutbox .about .box .content {
+    height: 100%;
+  }
+  body .contactsection .infocontact {
+    min-height: 40vh;
+    padding: 0 2rem;
+  }
+  body .contactsection .infocontact h1 {
+    font-size: 3rem;
+    text-align: center;
+  }
+  body .contactsection .infocontact p {
+    font-size: 1.4rem;
+    text-align: center;
+  }
+  body .contactsection .contactbox {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    padding: 2rem 0rem;
+  }
+  body .contactsection .contactbox .detailbox {
+    padding: 1rem .2rem;
+  }
+  body .contactsection .contactbox .detailbox .box {
+    padding: 3rem 2rem;
+  }
+  body .contactsection .contactbox .detailbox .box a {
+    font-size: 3rem;
+  }
+  body .contactsection .contactbox .detailbox .box .text h3 {
+    font-size: 2.5rem;
+  }
+  body .contactsection .contactbox .detailbox .box .text p {
+    font-size: 1.8rem;
+  }
+  body .blogsection {
+    padding: 2rem 1rem;
+  }
+  body .blogsection .swiper {
+    padding: 2rem 1rem;
+  }
+  body .blogsection .swiper .swiper-wrapper .box {
+    height: 50rem;
+    margin-bottom: 1rem;
+  }
+  body .blogsection .swiper .swiper-wrapper .box .content {
+    font-size: 1.6rem;
+    height: 11rem;
+  }
+  body .blogsection .swiper .swiper-wrapper .box a {
+    font-size: 1.5rem;
+  }
+  body .productsection {
+    padding: 2rem 1rem;
+  }
+  body .productsection .headtitle {
+    padding: 1rem;
+  }
+  body .productsection .headtitle h1 {
+    font-size: 2.5rem;
+  }
+  body .productsection .swiper {
+    padding: 2rem 1rem;
+  }
+  body .productsection .swiper .swiper-wrapper .box {
+    margin-bottom: 1rem;
+  }
+  body .productsection .swiper .swiper-wrapper .box .content {
+    font-size: 1.6rem;
+    height: 14rem;
+  }
+  body .profilesection {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  body .profilesection .block {
+    margin: 3rem 0;
+    width: 100%;
+  }
+  body .profilesection .block .imgbox img {
+    width: 50%;
+    height: 14rem;
+  }
+  body .profilesection .block:nth-child(1) {
+    width: 100%;
+    height: 50vh;
+    overflow: hidden;
+  }
+  body .profilesection .block .some .btn {
+    padding: 0.5rem 2.5rem;
+  }
+  body .profilesection .block .some .btn:nth-child(1) {
+    padding: 0.5rem 7rem;
+  }
+  body .profilesection .block .detailform {
+    width: 100%;
+    padding: 2rem 0;
+  }
+  body .profilesection .block .detailform .form label {
+    width: 100%;
+  }
+  body .productdetailsection,
+  body .readblogsection {
+    padding-bottom: 0;
+  }
+  body .productdetailsection .productpricedetail img.bg,
+  body .productdetailsection .readblogdetail img.bg,
+  body .readblogsection .productpricedetail img.bg,
+  body .readblogsection .readblogdetail img.bg {
+    height: 50vh;
+  }
+  body .productdetailsection .productpricedetail img,
+  body .productdetailsection .readblogdetail img,
+  body .readblogsection .productpricedetail img,
+  body .readblogsection .readblogdetail img {
+    width: 50%;
+    margin-bottom: 2rem;
+  }
+  body .productdetailsection .productpricedetail .nameproduct,
+  body .productdetailsection .readblogdetail .nameproduct,
+  body .readblogsection .productpricedetail .nameproduct,
+  body .readblogsection .readblogdetail .nameproduct {
+    font-size: 2.7rem;
+  }
+  body .productdetailsection .productpricedetail .author,
+  body .productdetailsection .readblogdetail .author,
+  body .readblogsection .productpricedetail .author,
+  body .readblogsection .readblogdetail .author {
+    font: 300 1.8rem var(--font1);
+  }
+  body .productdetailsection .productpricedetail .price,
+  body .productdetailsection .readblogdetail .price,
+  body .readblogsection .productpricedetail .price,
+  body .readblogsection .readblogdetail .price {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  body .productdetailsection .productpricedetail .price .pricebox,
+  body .productdetailsection .readblogdetail .price .pricebox,
+  body .readblogsection .productpricedetail .price .pricebox,
+  body .readblogsection .readblogdetail .price .pricebox {
+    margin: 1.6rem 0;
+  }
+  body .productdetailsection .productpricedetail .price .form,
+  body .productdetailsection .readblogdetail .price .form,
+  body .readblogsection .productpricedetail .price .form,
+  body .readblogsection .readblogdetail .price .form {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  body .productdetailsection .productpricedetail .price .form label input[type=text],
+  body .productdetailsection .readblogdetail .price .form label input[type=text],
+  body .readblogsection .productpricedetail .price .form label input[type=text],
+  body .readblogsection .readblogdetail .price .form label input[type=text] {
+    width: 45%;
+  }
+  body .productdetailsection .productpricedetail .productdesc p,
+  body .productdetailsection .readblogdetail .productdesc p,
+  body .readblogsection .productpricedetail .productdesc p,
+  body .readblogsection .readblogdetail .productdesc p {
+    font-size: 2rem;
+  }
+  body .productdetailsection .productpricedetail .productcare .topic,
+  body .productdetailsection .readblogdetail .productcare .topic,
+  body .readblogsection .productpricedetail .productcare .topic,
+  body .readblogsection .readblogdetail .productcare .topic {
+    font-size: 3rem;
+  }
+  body .productdetailsection .productpricedetail .productcare .topicpoint,
+  body .productdetailsection .readblogdetail .productcare .topicpoint,
+  body .readblogsection .productpricedetail .productcare .topicpoint,
+  body .readblogsection .readblogdetail .productcare .topicpoint {
+    font-size: 1.6rem;
+  }
+  body .productdetailsection .productpricedetail .boxs,
+  body .productdetailsection .readblogdetail .boxs,
+  body .readblogsection .productpricedetail .boxs,
+  body .readblogsection .readblogdetail .boxs {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  body .productdetailsection .productpricedetail .boxs .boxy,
+  body .productdetailsection .readblogdetail .boxs .boxy,
+  body .readblogsection .productpricedetail .boxs .boxy,
+  body .readblogsection .readblogdetail .boxs .boxy {
+    width: 100%;
+  }
+  body .productdetailsection .productpricedetail .boxs .boxy:nth-child(1),
+  body .productdetailsection .readblogdetail .boxs .boxy:nth-child(1),
+  body .readblogsection .productpricedetail .boxs .boxy:nth-child(1),
+  body .readblogsection .readblogdetail .boxs .boxy:nth-child(1) {
+    width: 100%;
+  }
+  body .productdetailsection .productpricedetail .boxs .boxy .cont i,
+  body .productdetailsection .readblogdetail .boxs .boxy .cont i,
+  body .readblogsection .productpricedetail .boxs .boxy .cont i,
+  body .readblogsection .readblogdetail .boxs .boxy .cont i {
+    font-size: 3rem;
+    margin-right: 1rem;
+    padding: 0 .3rem;
+  }
+  body .productdetailsection .productpricedetail .boxs .boxy .cont .content,
+  body .productdetailsection .readblogdetail .boxs .boxy .cont .content,
+  body .readblogsection .productpricedetail .boxs .boxy .cont .content,
+  body .readblogsection .readblogdetail .boxs .boxy .cont .content {
+    margin-left: 1rem;
+  }
+  body .productdetailsection .productpricedetail .boxs .boxy .cont .content h2,
+  body .productdetailsection .readblogdetail .boxs .boxy .cont .content h2,
+  body .readblogsection .productpricedetail .boxs .boxy .cont .content h2,
+  body .readblogsection .readblogdetail .boxs .boxy .cont .content h2 {
+    font-size: 2.4rem;
+  }
+  body .productdetailsection .productpricedetail .boxs .boxy .cont .content p,
+  body .productdetailsection .readblogdetail .boxs .boxy .cont .content p,
+  body .readblogsection .productpricedetail .boxs .boxy .cont .content p,
+  body .readblogsection .readblogdetail .boxs .boxy .cont .content p {
+    font-size: 1.4rem;
+  }
+  body .productdetailsection .productpricedetail .infox .infoy,
+  body .productdetailsection .readblogdetail .infox .infoy,
+  body .readblogsection .productpricedetail .infox .infoy,
+  body .readblogsection .readblogdetail .infox .infoy {
+    padding: 0;
+  }
+  body .productdetailsection .productpricedetail .infox .infoy .cont,
+  body .productdetailsection .readblogdetail .infox .infoy .cont,
+  body .readblogsection .productpricedetail .infox .infoy .cont,
+  body .readblogsection .readblogdetail .infox .infoy .cont {
+    border-radius: 1rem;
+    border-bottom: 0.2rem solid var(--inputbg);
+    padding: 2rem;
+  }
+  body .productdetailsection .productpricedetail .infox .infoy .cont h1,
+  body .productdetailsection .readblogdetail .infox .infoy .cont h1,
+  body .readblogsection .productpricedetail .infox .infoy .cont h1,
+  body .readblogsection .readblogdetail .infox .infoy .cont h1 {
+    text-align: center;
+  }
+  body .productdetailsection .productpricedetail .infox .infoy .cont p,
+  body .productdetailsection .readblogdetail .infox .infoy .cont p,
+  body .readblogsection .productpricedetail .infox .infoy .cont p,
+  body .readblogsection .readblogdetail .infox .infoy .cont p {
+    text-align: justify;
+  }
+  body .login .contantbx,
+  body .register .contantbx,
+  body .forgotpw .contantbx,
+  body .passwordchange .contantbx {
+    width: 90%;
+  }
+  body .login .contantbx .formbx,
+  body .register .contantbx .formbx,
+  body .forgotpw .contantbx .formbx,
+  body .passwordchange .contantbx .formbx {
+    width: 90%;
+  }
+  body .addproduct,
+  body .writeblogsection {
+    padding-bottom: 0;
+  }
+  body .addproduct .productpricedetail img.bg,
+  body .addproduct .writeblogdetail img.bg,
+  body .writeblogsection .productpricedetail img.bg,
+  body .writeblogsection .writeblogdetail img.bg {
+    height: 37vh !important;
+  }
+  body .addproduct .productpricedetail .mainimg,
+  body .addproduct .writeblogdetail .mainimg,
+  body .writeblogsection .productpricedetail .mainimg,
+  body .writeblogsection .writeblogdetail .mainimg {
+    width: 100%;
+  }
+  body .addproduct .productpricedetail .mainimg img,
+  body .addproduct .writeblogdetail .mainimg img,
+  body .writeblogsection .productpricedetail .mainimg img,
+  body .writeblogsection .writeblogdetail .mainimg img {
+    width: 50%;
+    margin-bottom: 2rem;
+  }
+  body .addproduct .productpricedetail .form,
+  body .addproduct .writeblogdetail .form,
+  body .writeblogsection .productpricedetail .form,
+  body .writeblogsection .writeblogdetail .form {
+    text-align: center;
+  }
+  body .addproduct .productpricedetail .form input,
+  body .addproduct .productpricedetail .form select,
+  body .addproduct .productpricedetail .form textarea,
+  body .addproduct .writeblogdetail .form input,
+  body .addproduct .writeblogdetail .form select,
+  body .addproduct .writeblogdetail .form textarea,
+  body .writeblogsection .productpricedetail .form input,
+  body .writeblogsection .productpricedetail .form select,
+  body .writeblogsection .productpricedetail .form textarea,
+  body .writeblogsection .writeblogdetail .form input,
+  body .writeblogsection .writeblogdetail .form select,
+  body .writeblogsection .writeblogdetail .form textarea {
+    width: 100%;
+  }
+  body .addproduct .productpricedetail .form .nameproduct,
+  body .addproduct .writeblogdetail .form .nameproduct,
+  body .writeblogsection .productpricedetail .form .nameproduct,
+  body .writeblogsection .writeblogdetail .form .nameproduct {
+    font-size: 2.7rem;
+  }
+  body .addproduct .productpricedetail .form .price,
+  body .addproduct .writeblogdetail .form .price,
+  body .writeblogsection .productpricedetail .form .price,
+  body .writeblogsection .writeblogdetail .form .price {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  body .addproduct .productpricedetail .form .price .pricebox,
+  body .addproduct .writeblogdetail .form .price .pricebox,
+  body .writeblogsection .productpricedetail .form .price .pricebox,
+  body .writeblogsection .writeblogdetail .form .price .pricebox {
+    margin: 1.6rem 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  body .addproduct .productpricedetail .form .price .pricebox input,
+  body .addproduct .writeblogdetail .form .price .pricebox input,
+  body .writeblogsection .productpricedetail .form .price .pricebox input,
+  body .writeblogsection .writeblogdetail .form .price .pricebox input {
+    width: 85%;
+  }
+  body .addproduct .productpricedetail .form .price .btn,
+  body .addproduct .writeblogdetail .form .price .btn,
+  body .writeblogsection .productpricedetail .form .price .btn,
+  body .writeblogsection .writeblogdetail .form .price .btn {
+    width: 85%;
+  }
+  body .addproduct .productpricedetail .form .line,
+  body .addproduct .writeblogdetail .form .line,
+  body .writeblogsection .productpricedetail .form .line,
+  body .writeblogsection .writeblogdetail .form .line {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  body .addproduct .productpricedetail .form .productdesc p,
+  body .addproduct .writeblogdetail .form .productdesc p,
+  body .writeblogsection .productpricedetail .form .productdesc p,
+  body .writeblogsection .writeblogdetail .form .productdesc p {
+    font-size: 2rem;
+  }
+  body .addproduct .productpricedetail .form .productcare .topic,
+  body .addproduct .writeblogdetail .form .productcare .topic,
+  body .writeblogsection .productpricedetail .form .productcare .topic,
+  body .writeblogsection .writeblogdetail .form .productcare .topic {
+    font-size: 3rem;
+  }
+  body .addproduct .productpricedetail .form .productcare .topicpoint,
+  body .addproduct .writeblogdetail .form .productcare .topicpoint,
+  body .writeblogsection .productpricedetail .form .productcare .topicpoint,
+  body .writeblogsection .writeblogdetail .form .productcare .topicpoint {
+    font-size: 1.6rem;
+  }
+  body .addproduct .productpricedetail .form .boxs,
+  body .addproduct .writeblogdetail .form .boxs,
+  body .writeblogsection .productpricedetail .form .boxs,
+  body .writeblogsection .writeblogdetail .form .boxs {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  body .addproduct .productpricedetail .form .boxs .boxy,
+  body .addproduct .writeblogdetail .form .boxs .boxy,
+  body .writeblogsection .productpricedetail .form .boxs .boxy,
+  body .writeblogsection .writeblogdetail .form .boxs .boxy {
+    width: 100%;
+  }
+  body .addproduct .productpricedetail .form .boxs .boxy:nth-child(1),
+  body .addproduct .writeblogdetail .form .boxs .boxy:nth-child(1),
+  body .writeblogsection .productpricedetail .form .boxs .boxy:nth-child(1),
+  body .writeblogsection .writeblogdetail .form .boxs .boxy:nth-child(1) {
+    width: 100%;
+  }
+  body .addproduct .productpricedetail .form .boxs .boxy .cont i,
+  body .addproduct .writeblogdetail .form .boxs .boxy .cont i,
+  body .writeblogsection .productpricedetail .form .boxs .boxy .cont i,
+  body .writeblogsection .writeblogdetail .form .boxs .boxy .cont i {
+    font-size: 3rem;
+    margin-right: 1rem;
+    padding: 0 .3rem;
+  }
+  body .addproduct .productpricedetail .form .boxs .boxy .cont .content,
+  body .addproduct .writeblogdetail .form .boxs .boxy .cont .content,
+  body .writeblogsection .productpricedetail .form .boxs .boxy .cont .content,
+  body .writeblogsection .writeblogdetail .form .boxs .boxy .cont .content {
+    margin-left: 1rem;
+  }
+  body .addproduct .productpricedetail .form .boxs .boxy .cont .content h2,
+  body .addproduct .writeblogdetail .form .boxs .boxy .cont .content h2,
+  body .writeblogsection .productpricedetail .form .boxs .boxy .cont .content h2,
+  body .writeblogsection .writeblogdetail .form .boxs .boxy .cont .content h2 {
+    font-size: 2.4rem;
+  }
+  body .addproduct .productpricedetail .form .boxs .boxy .cont .content p,
+  body .addproduct .writeblogdetail .form .boxs .boxy .cont .content p,
+  body .writeblogsection .productpricedetail .form .boxs .boxy .cont .content p,
+  body .writeblogsection .writeblogdetail .form .boxs .boxy .cont .content p {
+    font-size: 1.4rem;
+  }
+  body .addproduct .productpricedetail .form .infox,
+  body .addproduct .writeblogdetail .form .infox,
+  body .writeblogsection .productpricedetail .form .infox,
+  body .writeblogsection .writeblogdetail .form .infox {
+    padding: 0;
+  }
+  body .addproduct .productpricedetail .form .infox .infoy,
+  body .addproduct .writeblogdetail .form .infox .infoy,
+  body .writeblogsection .productpricedetail .form .infox .infoy,
+  body .writeblogsection .writeblogdetail .form .infox .infoy {
+    padding: 0;
+  }
+  body .addproduct .productpricedetail .form .infox .infoy .cont h2,
+  body .addproduct .writeblogdetail .form .infox .infoy .cont h2,
+  body .writeblogsection .productpricedetail .form .infox .infoy .cont h2,
+  body .writeblogsection .writeblogdetail .form .infox .infoy .cont h2 {
+    text-indent: 0;
+  }
+  body .addproduct .productpricedetail .form .infox .infoy .cont .django-ckeditor-widget div#cke_id_Plant_Essentials,
+  body .addproduct .productpricedetail .form .infox .infoy .cont .django-ckeditor-widget div#cke_id_Common_Problems,
+  body .addproduct .productpricedetail .form .infox .infoy .cont .django-ckeditor-widget div#cke_id_Style_and_Decor,
+  body .addproduct .writeblogdetail .form .infox .infoy .cont .django-ckeditor-widget div#cke_id_Plant_Essentials,
+  body .addproduct .writeblogdetail .form .infox .infoy .cont .django-ckeditor-widget div#cke_id_Common_Problems,
+  body .addproduct .writeblogdetail .form .infox .infoy .cont .django-ckeditor-widget div#cke_id_Style_and_Decor,
+  body .writeblogsection .productpricedetail .form .infox .infoy .cont .django-ckeditor-widget div#cke_id_Plant_Essentials,
+  body .writeblogsection .productpricedetail .form .infox .infoy .cont .django-ckeditor-widget div#cke_id_Common_Problems,
+  body .writeblogsection .productpricedetail .form .infox .infoy .cont .django-ckeditor-widget div#cke_id_Style_and_Decor,
+  body .writeblogsection .writeblogdetail .form .infox .infoy .cont .django-ckeditor-widget div#cke_id_Plant_Essentials,
+  body .writeblogsection .writeblogdetail .form .infox .infoy .cont .django-ckeditor-widget div#cke_id_Common_Problems,
+  body .writeblogsection .writeblogdetail .form .infox .infoy .cont .django-ckeditor-widget div#cke_id_Style_and_Decor {
+    width: 260px !important;
+    padding: 0;
+  }
+  body .addtocartsection .heading h1,
+  body .ordersection .heading h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    text-indent: 0;
+  }
+  body .addtocartsection .heading h1:nth-child(1),
+  body .ordersection .heading h1:nth-child(1) {
+    width: 20%;
+  }
+  body .addtocartsection .heading h1:nth-child(2),
+  body .ordersection .heading h1:nth-child(2) {
+    width: 50%;
+  }
+  body .addtocartsection .form,
+  body .ordersection .form {
+    height: 15rem;
+  }
+  body .addtocartsection .form .boxx img,
+  body .ordersection .form .boxx img {
+    width: 20%;
+    margin-right: 1.5rem;
+    height: 10rem;
+  }
+  body .addtocartsection .form .boxx .boxy input,
+  body .ordersection .form .boxx .boxy input {
+    font-size: 1.7rem;
+    margin: .5rem;
+  }
+  body .addtocartsection .form .boxx .boxy input:nth-child(2),
+  body .ordersection .form .boxx .boxy input:nth-child(2) {
+    font-size: 1.2rem;
+  }
+  body .addtocartsection .form .boxx .boxy input:nth-child(3),
+  body .ordersection .form .boxx .boxy input:nth-child(3) {
+    font-size: 1.5rem;
+  }
+  body .addtocartsection .form .boxx .button input[type=submit],
+  body .addtocartsection .form .boxx .button h1,
+  body .ordersection .form .boxx .button input[type=submit],
+  body .ordersection .form .boxx .button h1 {
+    width: 100%;
+    font-size: 1.4rem;
+    margin: .55rem 0;
+    padding: 1rem .5rem;
+  }
+}

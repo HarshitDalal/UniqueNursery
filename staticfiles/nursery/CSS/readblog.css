@@ -1,0 +1,210 @@
+.readblogsection {
+  -webkit-box-shadow: var(--boxshadow1);
+          box-shadow: var(--boxshadow1);
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.readblogsection .readblogdetail {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  padding-bottom: 1rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.readblogsection .readblogdetail img.bg {
+  width: 99%;
+  height: 85vh;
+  opacity: .3;
+  position: absolute;
+  top: 8.1rem;
+}
+
+.readblogsection .readblogdetail img {
+  width: 30%;
+  margin-bottom: 4rem;
+}
+
+.readblogsection .readblogdetail .nameproduct {
+  font: 700 4rem var(--font1);
+  margin-bottom: 1rem;
+}
+
+.readblogsection .readblogdetail .author {
+  font: 400 2rem var(--font1);
+}
+
+.readblogsection .readblogdetail .author span {
+  margin-left: 2rem;
+}
+
+.readblogsection .readblogdetail .author b {
+  margin-left: 1rem;
+  font-size: 3rem;
+}
+
+.readblogsection .readblogdetail .productdesc {
+  width: 85%;
+  margin: 2rem 0;
+}
+
+.readblogsection .readblogdetail .productdesc p {
+  font: 500 2.5rem var(--font1);
+  text-align: center;
+  color: var(--color1);
+}
+
+.readblogsection .readblogdetail .productcare {
+  border-bottom: 0.2rem solid var(--inputbg);
+  padding: 2rem;
+  width: 95%;
+  border-radius: 1rem;
+  margin: 1.4rem 0;
+}
+
+.readblogsection .readblogdetail .productcare .topic {
+  font: 800 4rem var(--font1);
+}
+
+.readblogsection .readblogdetail .productcare .topicpoint {
+  font: 700 2rem var(--font1);
+}
+
+.readblogsection .readblogdetail .boxs {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 95%;
+  padding: 2rem;
+  -webkit-box-shadow: var(--boxshadow1);
+          box-shadow: var(--boxshadow1);
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 1rem;
+}
+
+.readblogsection .readblogdetail .boxs .boxy {
+  width: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 2rem 4rem;
+  margin: 1rem;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  border-radius: 1rem;
+}
+
+.readblogsection .readblogdetail .boxs .boxy img {
+  width: 100%;
+}
+
+.readblogsection .readblogdetail .boxs .boxy:nth-child(1) {
+  width: 40%;
+  -webkit-box-shadow: var(--boxshadow1);
+          box-shadow: var(--boxshadow1);
+}
+
+.readblogsection .readblogdetail .boxs .boxy .cont {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  margin: 1.8rem 0;
+}
+
+.readblogsection .readblogdetail .boxs .boxy .cont i {
+  font-size: 4rem;
+  margin-right: 2rem;
+  padding: 0 1rem;
+  width: 20%;
+}
+
+.readblogsection .readblogdetail .boxs .boxy .cont .content {
+  width: 75%;
+  margin-left: 2rem;
+}
+
+.readblogsection .readblogdetail .boxs .boxy .cont .content h2 {
+  font: italic 600 3rem var(--font1);
+}
+
+.readblogsection .readblogdetail .boxs .boxy .cont .content p {
+  font: italic 500 1.6rem var(--font1);
+}
+
+.readblogsection .readblogdetail .infox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 95%;
+  padding: 2rem;
+  -webkit-box-shadow: var(--boxshadow1);
+          box-shadow: var(--boxshadow1);
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 1rem;
+  margin: 2rem 0;
+}
+
+.readblogsection .readblogdetail .infox .infoy {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 2rem 4rem;
+  margin: 1rem;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  border-radius: 1rem;
+}
+
+.readblogsection .readblogdetail .infox .infoy .cont {
+  width: 100%;
+  margin: 1.8rem 0;
+}
+
+.readblogsection .readblogdetail .infox .infoy .cont h1 {
+  font: 700 3.5rem var(--font1);
+}
+
+.readblogsection .readblogdetail .infox .infoy .cont p {
+  font: 500 2.2rem var(--font1);
+  color: var(--colorgray);
+  white-space: pre-line;
+}

@@ -1,0 +1,217 @@
+.header{
+    .swiper{
+        width: 100%;
+        height: 90vh;
+        margin-bottom: 1.5rem;
+        box-shadow: var(--boxshadow1);
+        .swiper-wrapper{
+            width: 100%;
+            height: 100%;
+            .swiper-slide{
+                box-shadow: var(--boxshadow1);
+                height: 100%;
+                border-radius: .5rem;
+                width: 100%;
+                padding: 1rem;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background: var(--bgimg1);
+                background-size: 100% 100%;
+                background-repeat: no-repeat;
+                .info{
+                    width: 90%;
+                    text-align: center;
+                    h2{
+                        font: italic 800 8rem var(--font1);
+                        color: var(--colorwhite);
+                        letter-spacing: .2rem;
+                    }
+                    p{
+                        margin-bottom: 3rem;
+                        font: 600 3rem var(--font1);
+                        color: var(--colorwhite);
+                        letter-spacing: .2rem;
+
+                    }
+                    .btn{
+                        font: italic 400 1.7rem var(--font1);
+                        padding: 1rem 3rem;
+                        text-decoration: none;
+                        border: none;
+                        border-radius: 1rem;
+                        background: var(--btn);
+                        color: var(--colorwhite);
+                        &:hover,&:active{
+                            background: var(--btnhover);
+                        }
+                    }
+                }
+            }
+        }
+        .swiper-pagination-bullet-active{
+            height: 2rem;
+            width: 2rem;
+            background: var(--btn);
+        }
+        .swiper-pagination-bullet{
+            height: 2rem;
+            width: 2rem;
+        }
+    }
+}
+
+.homesection{
+    width: 100%;
+    .nursery{
+        width: 100%;
+        margin: 1rem 0;
+        padding: 1rem 2rem;
+        box-shadow: var(--boxshadow2);
+        .imge{
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2rem;
+            border-radius: 1.6rem;
+            margin: 1rem 0;
+            box-shadow: var(--boxshadow1);
+            .pera{
+                width: 40%;
+                h1{
+                    font: 600 5rem var(--font2);
+                    text-align: justify;
+                    margin-bottom: 2rem;
+                }
+                p{
+                    font: 400 1.75rem var(--font2);
+                    text-indent: 3rem;
+                    line-height: 1.7;
+                    margin-bottom: 1.6rem;
+
+                }
+            }
+            &:nth-child(2){
+                flex-direction: row-reverse;
+            }
+            img{
+                width: 55%;
+                border-radius: 1rem;
+                box-shadow: var(--boxshadow2);
+                height: 35rem;
+            }
+        }
+    }
+
+    .blogs{
+        width: calc(100/4);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 2rem;
+        box-shadow: var(--boxshadow1);
+        .box{
+            width: 90%;
+            padding: 1rem;
+            box-shadow: var(--boxshadow1);
+            margin: 1rem;
+            border-radius: 1rem;
+            img{
+                width: 100%;
+                border-radius: .6rem;
+                height: 25rem;
+            }
+            .title{
+                padding: 1rem;
+                color: var(--color1);
+                font: 600 2.5rem var(--font1);
+            }
+            .content{
+                padding: 1rem;
+                text-align: justify;
+                color: var(--color2);
+                font: 500 1.5rem var(--font1);
+                margin-bottom: 1rem;
+                overflow: hidden;
+                height: 10rem;
+            }
+            a{
+                padding: 1rem;
+                text-decoration: none;
+                font: 1.3rem var(--font1);
+                font-weight: 500;
+            }
+        }
+    }
+    .products{
+        width: calc(100/4);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 1rem;
+        margin: 1rem 0;
+        box-shadow: var(--boxshadow1);
+        .box{
+            width: 90%;
+            box-shadow: var(--boxshadow1);
+            margin: 1rem;
+            padding: 1rem;
+            border-radius: 1.5rem;
+            height: 43rem;
+            img{
+                width: 100%;
+                border-radius: 1rem ;
+                height: 25rem;
+                background: var(--addcart);
+            }
+            .name{
+                display: flex;
+                justify-content: center;
+                width: 100%;
+                align-items: center;
+                padding: 1.7rem;
+                .nameprice{
+                    width: 70%;
+                    .pname{
+                        width: 100%;
+                        p{
+                            padding: 0 1rem;
+                            color: var(--color1);
+                            font: 2rem var(--font1);
+                            font-weight: 600;
+                        }
+                    }
+                    .price{
+                        width: 100%;
+                        p{
+                            font: 2rem var(--font1);
+                            padding: 0 1rem;
+                            .real{
+                                color: var(--colorreal);
+                            }
+                            .descount{
+                                color: var(--colordescount);
+                            }
+                            .percent{
+                                text-indent: 2rem;
+                                font-size: 1.4rem;
+                                color: var(--colorreal);
+                            }
+                        }
+                    }
+                }
+                a{
+                    width: 30%;
+                    text-align: center;
+                    align-self: baseline;
+                    padding: 2rem 1rem;
+                    background: var(--btn);
+                    font-size: 4rem;
+                    color: var(--colorwhite);
+                    border-radius: 1rem;
+                }
+            }
+        }
+    }
+}

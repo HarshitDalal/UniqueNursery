@@ -1,0 +1,92 @@
+.productsection{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 2rem;
+    overflow-wrap: normal;
+    box-shadow: var(--boxshadow1);
+    .headtitle{
+        width: 100%;
+        padding: 1rem 2rem;
+        margin: 1rem 0;
+        box-shadow: var(--boxshadow1);
+        border-radius: 1rem;
+        text-align: center;
+        h1{
+            font: italic 800 4rem var(--font1);
+            color: var(--color1);
+        }
+    }
+    .swiper{
+        width: 100%;
+        height: 100%;
+        margin-bottom: 1.5rem;
+        border-radius: 1rem;
+        padding: 3rem;
+        box-shadow: var(--boxshadow3);
+        .swiper-wrapper{
+            width: 100%;
+            height: 100%;
+        }
+        .box{
+            width: 90%;
+            box-shadow: var(--boxshadow1);
+            padding: 1rem;
+            border-radius: 1.5rem;
+            height: 43rem;
+            img{
+                width: 100%;
+                border-radius: 1rem ;
+                height: 25rem;
+                background: var(--addcart);
+            }
+            .name{
+                display: flex;
+                justify-content: center;
+                width: 100%;
+                align-items: center;
+                padding: 1.7rem;
+                .nameprice{
+                    width: 70%;
+                    .pname{
+                        width: 100%;
+                        p{
+                            padding: 0 1rem;
+                            color: var(--color1);
+                            font: 2rem var(--font1);
+                            font-weight: 600;
+                        }
+                    }
+                    .price{
+                        width: 100%;
+                        p{
+                            font: 2rem var(--font1);
+                            padding: 0 1rem;
+                            .real{
+                                color: var(--colorreal);
+                            }
+                            .descount{
+                                color: var(--colordescount);
+                            }
+                            .percent{
+                                color: var(--colorreal); 
+                                font-size: 1.4rem;
+                            }
+                        }
+                    }
+                }
+                a{
+                    width: 30%;
+                    text-align: center;
+                    padding: 2rem 1rem;
+                    background: var(--btn);
+                    font-size: 4rem;
+                    color: var(--colorwhite);
+                    border-radius: 1rem;
+                }
+            }
+        }
+    }
+}

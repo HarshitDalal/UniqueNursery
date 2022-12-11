@@ -1,0 +1,101 @@
+.addtocartsection,.ordersection{
+    width: 100%;
+    margin: 1rem 0;
+    .heading{
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        padding: 1rem;
+        box-shadow: var(--boxshadow1);
+        h1{
+            font: 800 3rem var(--font2);
+            color: var(--navbg);
+            text-indent: 2.5rem;
+            &:nth-child(1){
+                width: 15%;
+                margin-right: 1rem;
+            }
+            &:nth-child(2){
+                width: 52%;
+            }
+            &:nth-child(3){
+                text-align: center;
+                width: 20%;
+            }
+
+        }
+
+    }
+    .form{
+        box-shadow: var(--boxshadow1);
+        width: 100%;
+        padding: 1rem;
+        margin: 1rem 0;
+        height: 20rem;
+        .boxx{
+            width: 100%;
+            padding: 1rem;
+            display: flex;
+            justify-content: center;
+            img{
+                width: 15%;
+                height: 16rem;
+                margin-right: 2.5rem;
+                border-radius: 1rem;
+                box-shadow: var(--boxshadow3);
+            }
+            .boxy{
+                width: 55%;
+                display: flex;
+                flex-direction: column;
+                input{
+                    margin: 1rem 0;
+                    border: none;
+                    outline: none;
+                    color: var(--color1);
+                    font: 700 2.5rem var(--font2);
+                    &:nth-child(2){
+                        font: 500 1.5rem var(--font2);
+                    }
+                    &:nth-child(3){
+                        font: 600 2rem var(--font2);
+                        color: var(--colorreal);
+                    }
+                    &:nth-child(4){
+                        font: 500 1.25rem var(--font2);
+                        color: var(--colordescount);
+                    }
+                }
+            }
+            .button{
+                width: 20%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                input[type=submit],h1{
+                    width: 100%;
+                    padding: 1rem;
+                    margin: 0.5rem;
+                    border: none;
+                    font: 700 2rem var(--font2);
+                    border-radius: 1rem;
+                    box-shadow: var(--boxshadow1);
+                    outline: none;
+                    cursor: pointer;
+                    background: var(--colorwhite);
+                    &:hover{
+                        color: var(--color4);
+                    }
+                }
+                h1{
+                    box-shadow: none;
+                    color: var(--color6);
+                    cursor: default;
+                    text-align: center;
+                }
+            }
+        }
+        
+    }
+}

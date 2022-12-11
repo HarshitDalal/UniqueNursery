@@ -1,0 +1,123 @@
+.profilesection{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: calc(100/2);
+    padding: 1rem;
+    box-shadow: var(--boxshadow1);
+    .block{
+        border-radius: 1rem;
+        &:nth-child(1){
+            width: 40%;
+            height: 80vh;
+        }
+        margin: 3rem;
+        width: 80%;
+        display: flex;
+        padding: 1rem;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        box-shadow: var(--boxshadow1);
+        .imgbox{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 3rem;
+            img{
+                width: 75%;
+                height: 30rem;
+                object-fit: fill;
+                border-radius: 50%;
+            }
+        }
+        .sociallink{
+            width: 80%;
+            text-align: center;
+            ul{
+                width: 90%;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                li{
+                    list-style: none;
+                    a{
+                        text-decoration: none;
+                        font: 500 2rem var(--font2);
+                        color: var(--color1);
+                    }
+                }
+            }
+        }
+        .some{
+            width: 100%;
+            margin: 1.6rem;
+            text-align: center;
+            padding: 1rem;
+
+            .btn{
+                width: 100%;
+                padding: .5rem 9.5rem;
+                font: 600 2rem var(--font1);
+                line-height: 5rem;
+                background: var(--color2);
+                color: var(--colorwhite);
+                border-radius: 1rem;
+                text-decoration: none;
+                &:nth-child(1){
+                    padding: .5rem 14rem;
+                }
+            }
+        }
+        .detailform{
+            margin: 0 6rem;
+            width: 90%;
+            border-radius: 2rem;
+            padding: 2rem;
+            .form{
+                width: calc(100/2);
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                flex-wrap: wrap;
+                label{
+                    width: 49%;
+                    padding: 1rem;
+                    .label{
+                        padding-left: 1rem;
+                        font: 500 1.7rem var(--font1);
+                        color: var(--color1);
+                    }
+                    
+                    input,textarea,select{
+                        width: 100%;
+                        border: none;
+                        border-radius: .5rem;
+                        text-indent: 1rem;
+                        padding: .5rem;
+                        letter-spacing: .2rem;
+                        font: 400 1.7rem var(--font1);
+                        outline: none;
+                        background: var(--inputbg);
+                        resize: none;
+                        text-transform: capitalize;
+                        max-height: 8rem;
+                    }
+                    input[type=submit],input[type=reset]{
+                        width: 100%;
+                        cursor: pointer;
+                        color: var(--colorwhite);
+                        background: var(--btn);
+                    }
+                    input[type=email]{
+                        text-transform: none;
+                    }
+                    input[type=url]{
+                        text-transform: none;
+                    }
+                }
+            }
+        }
+    }
+}
