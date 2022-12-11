@@ -11,11 +11,11 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 from pathlib import Path
-import os
+
 import cloudinary
 import cloudinary.uploader
 import cloudinary.api
-import dj_database_url
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -30,7 +30,7 @@ SECRET_KEY = "django-insecure-oy+*ca%)&%7@e4-o(^^9kr61cf2f(5=b3n#rl8k4xeg=*#)m&=
 DEBUG = False
 
 # ALLOWED_HOSTS = ["uniquenursery-production.up.railway.app","localhost"]
-ALLOWED_HOSTS = ["uniquenursery.netlify.app",'localhost']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -100,8 +100,6 @@ DATABASES = {
     # } 
 }
 
-db_from_env = dj_database_url.config(conn_max_age=600)
-DATABASES['default'].update(db_from_env)
 
 
 # Password validation
