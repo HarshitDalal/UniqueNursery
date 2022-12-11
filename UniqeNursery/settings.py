@@ -29,7 +29,8 @@ SECRET_KEY = os.environ['SECRET_KEY']
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ["uniquenursery-production.up.railway.app","localhost"]
+# ALLOWED_HOSTS = ["uniquenursery-production.up.railway.app","localhost"]
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
