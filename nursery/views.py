@@ -1,16 +1,16 @@
-from datetime import datetime,timedelta
-import pytz,time
-from django.shortcuts import render,redirect
-from nursery.models import ContactUs, UserDetails,ProductDetail,AddToCart,Order,Blogs
-from nursery.forms import ContactForm ,RegistrationForm, UserDetailsForm, AdminProfileForm,WriteBlogForm
+from datetime import datetime
+from django.shortcuts import render, redirect
+from nursery.models import ContactUs, UserDetails, ProductDetail, AddToCart, Order, Blogs
+from nursery.forms import ContactForm, RegistrationForm, UserDetailsForm, AdminProfileForm, WriteBlogForm
 from django.contrib import messages
 from django.conf import settings
-from django.contrib.auth.forms import AuthenticationForm ,PasswordChangeForm,SetPasswordForm
+from django.contrib.auth.forms import AuthenticationForm, PasswordChangeForm, SetPasswordForm
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth import authenticate ,login ,logout ,update_session_auth_hash
+from django.contrib.auth import authenticate, login, logout, update_session_auth_hash
 
 from django.core.mail import EmailMessage
 from django.template.loader import get_template
+
 # Create your views here.
 
 """
@@ -23,7 +23,10 @@ Html Template Path
 Context Is A Dictionary That Use In Html Template
 
 """
-def html_email_Sanding(subject,html_template_path,reciver_emails,context_dict,sender_email=settings.EMAIL_HOST_USER,replay_email=settings.EMAIL_HOST_USER):
+
+
+def html_email_Sanding(subject, html_template_path, reciver_emails, context_dict, sender_email=settings.EMAIL_HOST_USER,
+                       replay_email=settings.EMAIL_HOST_USER):
     email_html_template = get_template(html_template_path).render(context_dict)
     email_message = EmailMessage(
         subject,
@@ -39,21 +42,26 @@ def html_email_Sanding(subject,html_template_path,reciver_emails,context_dict,se
     else:
         return True
 
+
 '''
 Home Page Carry Resent Added Four Blogs And Products
 '''
 
+
 def home(request):
     blog = Blogs.objects.all().order_by('-pk')[:4]
     product = ProductDetail.objects.all().order_by('-pk')[:4]
-    return render(request,'nursery/home.html',{'allpr':product,'allbl':blog})
+    return render(request, 'nursery/home.html', {'allpr': product, 'allbl': blog})
+
 
 """
 It's Only Show About Our Project.
 """
 
+
 def about(request):
-    return render(request,'nursery/about.html')
+    return render(request, 'nursery/about.html')
+
 
 """
 Contact Page Get FeedBack For Both Unknown Or Known User They Can Send Mail Through Fill This Form.
@@ -61,60 +69,65 @@ Contact Page Get FeedBack For Both Unknown Or Known User They Can Send Mail Thro
 By Mistake User Enter Wrong Email That's Why We Ask Mobile Number For Backup.  
 """
 
+
 # contact form page
 def contact(request):
-    if request.method == 'POST':      
+    if request.method == 'POST':
         confm = ContactForm(request.POST)
         if confm.is_valid():
             name = confm.cleaned_data['Full_Name']
             email = confm.cleaned_data['Email']
             mobile = confm.cleaned_data['Mobile']
             message = confm.cleaned_data['Message']
-            contacts = ContactUs(Full_Name=name,Email=email,Mobile=mobile,Message=message)
-            subject= "Contact with me "+name
+            contacts = ContactUs(Full_Name=name, Email=email, Mobile=mobile, Message=message)
+            subject = "Contact with me " + name
             html_template_path = 'email/contact_email.html'
-            content_html={
-                'today':datetime.now(),
-                'mobile':mobile,
-                'email':email,
-                'name':name
+            content_html = {
+                'today': datetime.now(),
+                'mobile': mobile,
+                'email': email,
+                'name': name
             }
-            html_email_Sanding(subject=subject,html_template_path=html_template_path,reciver_emails=[email],context_dict=content_html)
-            messages.success(request,'Your Message Sended To Uniqe Nursery.')
+            html_email_Sanding(subject=subject, html_template_path=html_template_path, reciver_emails=[email],
+                               context_dict=content_html)
+            messages.success(request, 'Your Message Sended To Uniqe Nursery.')
             contacts.save()
         else:
-            messages.error(request,'Please Fill Again')
+            messages.error(request, 'Please Fill Again')
             confm = ContactForm()
-        return render(request,'nursery/contact.html',{'confm':confm})
+        return render(request, 'nursery/contact.html', {'confm': confm})
     else:
         confm = ContactForm()
-        return render(request,'nursery/contact.html',{'confm':confm})
+        return render(request, 'nursery/contact.html', {'confm': confm})
+
 
 """
 Here We Fetch Data Form The DataBase (Blogs,ProductDetail) And Filter By There Plant Type For Showing Differnet Type Of Blogs And Products Respectivly On blog.html and product.html .
 """
 
+
 def product(request):
     allProds = []
-    catProds = ProductDetail.objects.values('Plant_Type','id')
+    catProds = ProductDetail.objects.values('Plant_Type', 'id')
     cats = {item['Plant_Type'] for item in catProds}
     for cat in cats:
         prod = ProductDetail.objects.filter(Plant_Type=cat)
         allProds.append(prod)
 
     parms = {'products': allProds}
-    return render(request,'nursery/product.html',parms)
+    return render(request, 'nursery/product.html', parms)
+
 
 def blog(request):
     allProds = []
-    catProds = Blogs.objects.values('Plant_Type','id')
+    catProds = Blogs.objects.values('Plant_Type', 'id')
     cats = {item['Plant_Type'] for item in catProds}
     for cat in cats:
         prod = Blogs.objects.filter(Plant_Type=cat)
         allProds.append(prod)
 
     parms = {'products': allProds}
-    return render(request,'nursery/blog.html',parms)
+    return render(request, 'nursery/blog.html', parms)
 
 
 """
@@ -125,7 +138,8 @@ That Two Functions Give Us Only Single Row From Their Respective Models Class.
 If "productdetails" Function Get POST Request Form The Frontend It Will Collect All Data From That Page And Save To AddToCart Model Through Requested User This POST Request Work Only For Register User Unknown User Can't Be Add Item In The AddToCart Model .
 """
 
-def productdetails(request,myid,type):
+
+def productdetails(request, myid, type):
     prod = []
     product = ProductDetail.objects.filter(id=myid)
     catProds = ProductDetail.objects.filter(Plant_Type=type)
@@ -145,17 +159,21 @@ def productdetails(request,myid,type):
             Product_Quantity=quantity
         )
         atc.save()
-        messages.success(request,f"{product[0].Product_Name} Is Added In Your Cart.")
+        messages.success(request, f"{product[0].Product_Name} Is Added In Your Cart.")
         return redirect('/addtocart/')
-    return render(request,'nursery/productdetail.html',{'product':product[0],'prod':prod})
+    return render(request, 'nursery/productdetail.html', {'product': product[0], 'prod': prod})
 
-def readblog(request,myid,type):
-    blog = Blogs.objects.filter(id=myid,Plant_Type=type)
-    return render(request,'nursery/readblog.html',{'blog':blog[0]})
+
+def readblog(request, myid, type):
+    blog = Blogs.objects.filter(id=myid, Plant_Type=type)
+    return render(request, 'nursery/readblog.html', {'blog': blog[0]})
+
 
 """
 Order or Add to cart process writen here
 """
+
+
 @login_required(login_url='/login/')
 def addtocart(request):
     cart = AddToCart.objects.filter(Buyer=request.user.userdetails)
@@ -167,17 +185,17 @@ def addtocart(request):
             price = request.POST['price']
             product = ProductDetail.objects.filter(id=product_id)
             if request.user.userdetails.Address == " ":
-               messages.error(request,"First Fill Your Personal Details In Your Profile.")
-            else: 
+                messages.error(request, "First Fill Your Personal Details In Your Profile.")
+            else:
                 od = Order(
-                    Buyer = buyer,
-                    Product = product[0],
-                    Product_Quantity = quantity[10:],
-                    Product_Amount = price[2:],
+                    Buyer=buyer,
+                    Product=product[0],
+                    Product_Quantity=quantity[10:],
+                    Product_Amount=price[2:],
                 )
                 od.save()
-                messages.success(request,"Your Order Placed.\n Pay After Delivery.\n Prepaid Not Available.")
-                messages.warning(request,"Check Mail For Order Detail\n If Mail Not Recive Change Your Mail")
+                messages.success(request, "Your Order Placed.\n Pay After Delivery.\n Prepaid Not Available.")
+                messages.warning(request, "Check Mail For Order Detail\n If Mail Not Recive Change Your Mail")
                 # Html Template Email Sending Process
                 to = request.user.userdetails.Email
                 address = request.user.userdetails.Address
@@ -189,20 +207,21 @@ def addtocart(request):
                 subject = f'{name} - Order Placed'
                 html_template_path = 'email/order_email.html'
                 content_html = {
-                    'product_name':name,
-                    'address':f" Delivery - {address} , {pincode}",
+                    'product_name': name,
+                    'address': f" Delivery - {address} , {pincode}",
                     'quantity': quantity,
                     'real': product[0].Real_Price,
                     'down': product[0].Discount_Price,
                     'price': price,
-                    'mobile':f'Your Contact - {mobile}',
-                    'img':img,
+                    'mobile': f'Your Contact - {mobile}',
+                    'img': img,
                     'plant_type': plant_type,
                     'pos': "Shipped",
-                    'word':"View",
+                    'word': "View",
                     'view': f"""https://uniqenursery.herokuapp.com/product/productdetail/{product_id}{plant_type}"""
                 }
-                html_email_Sanding(subject=subject,html_template_path=html_template_path,reciver_emails=[to],context_dict=content_html)
+                html_email_Sanding(subject=subject, html_template_path=html_template_path, reciver_emails=[to],
+                                   context_dict=content_html)
                 product_id = request.POST['prid'].split(',')[1]
                 addcart = AddToCart.objects.get(id=product_id)
                 addcart.delete()
@@ -210,19 +229,20 @@ def addtocart(request):
         elif 'Remove' in request.POST:
             product_id = request.POST['prid'].split(',')[1]
             addcart = AddToCart.objects.get(id=product_id)
-            addcart.delete()  
-            messages.success(request,"Item Removed From Your Cart.")      
-    return render(request,'nursery/addtocart.html',{'added':cart})
+            addcart.delete()
+            messages.success(request, "Item Removed From Your Cart.")
+    return render(request, 'nursery/addtocart.html', {'added': cart})
+
 
 @login_required(login_url='/login/')
 def orders(request):
-    orders = Order.objects.filter(Buyer = request.user.userdetails)
-    if request.method =="POST":
+    orders = Order.objects.filter(Buyer=request.user.userdetails)
+    if request.method == "POST":
         product_id = request.POST['prid']
         ord = Order.objects.get(id=product_id)
-        ord.Order_Cancel_Position=True
+        ord.Order_Cancel_Position = True
         ord.save()
-        messages.success(request,"Order Canceled Successfuly.")
+        messages.success(request, "Order Canceled Successfuly.")
         # Html Template Email Sending Process
         to = request.user.userdetails.Email
         address = request.user.userdetails.Address
@@ -234,29 +254,33 @@ def orders(request):
         subject = f'{name} - Order Canceled'
         html_template_path = 'email/order_email.html'
         content_html = {
-            'product_name':name,
-            'address':f" Delivery - {address} , {pincode}",
+            'product_name': name,
+            'address': f" Delivery - {address} , {pincode}",
             'quantity': f'Quantity - {orders[0].Product_Quantity}',
             'real': orders[0].Product.Real_Price,
             'down': orders[0].Product.Discount_Price,
             'price': f' ₹ {orders[0].Product_Amount}',
-            'mobile':f'Your Contact - {mobile}',
-            'img':img,
+            'mobile': f'Your Contact - {mobile}',
+            'img': img,
             'plant_type': plant_type,
             'pos': "Order Cancel",
             'view': f"""https://uniqenursery.herokuapp.com/product""",
-            'word':"Products"
+            'word': "Products"
         }
-        yes = html_email_Sanding(subject=subject,html_template_path=html_template_path,reciver_emails=[to],context_dict=content_html)
-        
+        yes = html_email_Sanding(subject=subject, html_template_path=html_template_path, reciver_emails=[to],
+                                 context_dict=content_html)
+
         # Html Template Email Send
         if yes:
-            messages.success(request,"Your Order Placed.\n Pay After Delivery.\n Prepaid Not Available.\n Your Mail Adderss Is Incorrect.")
+            messages.success(request,
+                             "Your Order Placed.\n Pay After Delivery.\n Prepaid Not Available.\n Your Mail Adderss Is Incorrect.")
         else:
-            messages.success(request,"Your Order Placed.\n Pay After Delivery.\n Prepaid Not Available.\n Check Mail For Confirmation.")
+            messages.success(request,
+                             "Your Order Placed.\n Pay After Delivery.\n Prepaid Not Available.\n Check Mail For Confirmation.")
     p_id = Order.objects.filter(Order_Cancel_Position=True)
     p_id.delete()
-    return render(request,'nursery/order.html',{'orders':orders})
+    return render(request, 'nursery/order.html', {'orders': orders})
+
 
 """
 Adding New Content Form Frontend To DataBase Like : Blogs ,Products .
@@ -280,33 +304,34 @@ def addproduct(request):
         maintenace = request.POST['maintenace']
         specialfeature = request.POST['specialfeature']
         secondtimg = request.FILES['secondtimg']
-        
+
         addnew = ProductDetail(
             Product_Img=prodimg,
-            Product_Name = prodname,
-            Plant_Type = planttype,
-            Real_Price = real,
-            Discount_Price = discount,
-            Description = description,
-            Light =light,
-            Watering = watering,
-            Where_To_Grow = wheretogrow,
-            Maintenance = maintenace,
-            Special_Feature = specialfeature,
-            Second_Img = secondtimg
+            Product_Name=prodname,
+            Plant_Type=planttype,
+            Real_Price=real,
+            Discount_Price=discount,
+            Description=description,
+            Light=light,
+            Watering=watering,
+            Where_To_Grow=wheretogrow,
+            Maintenance=maintenace,
+            Special_Feature=specialfeature,
+            Second_Img=secondtimg
         )
         addnew.save()
-        messages.success(request,f'Item - {prodname} added.')
-    return render(request,'nursery/addproduct.html')
+        messages.success(request, f'Item - {prodname} added.')
+    return render(request, 'nursery/addproduct.html')
+
 
 @login_required(login_url='/login/')
 def writeblog(request):
     if request.method == 'POST':
         tegfm = WriteBlogForm(request.POST)
         if tegfm.is_valid():
-            plantessentials=tegfm.cleaned_data['Plant_Essentials']
-            commonproblems=tegfm.cleaned_data['Common_Problems']
-            styleanddécor=tegfm.cleaned_data['Style_and_Decor']
+            plantessentials = tegfm.cleaned_data['Plant_Essentials']
+            commonproblems = tegfm.cleaned_data['Common_Problems']
+            styleanddécor = tegfm.cleaned_data['Style_and_Decor']
         prodimg = request.FILES['prodimg']
         blogname = request.POST['prodname']
         author = request.POST['author']
@@ -318,33 +343,35 @@ def writeblog(request):
         maintenace = request.POST['maintenace']
         specialfeature = request.POST['specialfeature']
         secondtimg = request.FILES['secondtimg']
-        
+
         addnew = Blogs(
             Main_Img=prodimg,
-            Blog_Name = blogname,
+            Blog_Name=blogname,
             Author=author,
-            Plant_Type = planttype,
-            Small_Info = description,
-            Light =light,
-            Watering = watering,
-            Where_To_Grow = wheretogrow,
-            Maintenance = maintenace,
-            Special_Feature = specialfeature,
-            Second_Img = secondtimg,
+            Plant_Type=planttype,
+            Small_Info=description,
+            Light=light,
+            Watering=watering,
+            Where_To_Grow=wheretogrow,
+            Maintenance=maintenace,
+            Special_Feature=specialfeature,
+            Second_Img=secondtimg,
             Plant_Essentials=plantessentials,
             Common_Problems=commonproblems,
             Style_and_Decor=styleanddécor
         )
         addnew.save()
-        messages.success(request,f'Blog - {blogname} added.')
+        messages.success(request, f'Blog - {blogname} added.')
     elif request.method == 'get':
-        messages.error(request,f'Blog can not be add.')
+        messages.error(request, f'Blog can not be add.')
     tegfm = WriteBlogForm()
-    return render(request,'nursery/writeblog.html',{'form':tegfm})
+    return render(request, 'nursery/writeblog.html', {'form': tegfm})
+
 
 """Authentication Function Starts From Here"""
 
-# registration page 
+
+# registration page
 def registration(request):
     if not request.user.is_authenticated:
         if request.method == "POST":
@@ -352,20 +379,21 @@ def registration(request):
             if regfm.is_valid():
                 user = regfm.save()
                 UserDetails.objects.create(
-                    User = user,
-                    Email = user.email,
+                    User=user,
+                    Email=user.email,
                 )
-                messages.success(request,'Registrations Successfully Done.')
+                messages.success(request, 'Registrations Successfully Done.')
                 return redirect('/login/')
             else:
-                messages.error(request,'Password Could Not Be Same As Email Or Username')
+                messages.error(request, 'Password Could Not Be Same As Email Or Username')
         else:
             regfm = RegistrationForm()
-        return render(request,'nursery/registration.html',{'regfm':regfm})
+        return render(request, 'nursery/registration.html', {'regfm': regfm})
     else:
         return redirect('/profile/')
 
-# login page 
+
+# login page
 def loginUser(request):
     if not request.user.is_authenticated:
         if request.method == 'POST':
@@ -373,27 +401,29 @@ def loginUser(request):
             if logfm.is_valid():
                 uname = logfm.cleaned_data['username']
                 upass = logfm.cleaned_data['password']
-                user = authenticate(username=uname,password=upass)
+                user = authenticate(username=uname, password=upass)
                 if user is not None:
-                    login(request,user)
-                    messages.success(request,'Login Successfully Done.')
+                    login(request, user)
+                    messages.success(request, 'Login Successfully Done.')
                     return redirect('/profile/')
                 else:
-                    messages.error(request,'Password Or Username Not Match')
+                    messages.error(request, 'Password Or Username Not Match')
             else:
-                messages.error(request,'Password Or Username Not Match')
-                
+                messages.error(request, 'Password Or Username Not Match')
+
         else:
             logfm = AuthenticationForm()
-        return render(request,'nursery/login.html',{'logfm':logfm})
+        return render(request, 'nursery/login.html', {'logfm': logfm})
     else:
         return redirect('/profile/')
 
-# logout page 
+
+# logout page
 def logoutUser(request):
     logout(request)
-    messages.success(request,'Logout Successfully.')
+    messages.success(request, 'Logout Successfully.')
     return redirect('/login/')
+
 
 # profile page
 @login_required(login_url='/login/')
@@ -416,48 +446,49 @@ def profile(request):
     #         fm = UserDetailsForm(instance=request.user.userdetails)
     try:
         if request.method == "POST":
-            fm = UserDetailsForm(request.POST,request.FILES,instance=request.user.userdetails)
+            fm = UserDetailsForm(request.POST, request.FILES, instance=request.user.userdetails)
             if fm.is_valid():
                 fm.save()
-                messages.success(request,f'{request.user} Profile Successfully Update')
+                messages.success(request, f'{request.user} Profile Successfully Update')
         else:
             fm = UserDetailsForm(instance=request.user.userdetails)
     except Exception as e:
         UserDetails.objects.create(
-            User = request.user,
-            Email = request.user.email,
+            User=request.user,
+            Email=request.user.email,
         )
         fm = UserDetailsForm(instance=request.user.userdetails)
-    return render(request,'nursery/profile.html',{'fm':fm})
+    return render(request, 'nursery/profile.html', {'fm': fm})
 
-# changepassword page 
+
+# changepassword page
 @login_required(login_url='/login/')
 def changepassword(request):
     if request.method == "POST":
-        chpass = PasswordChangeForm(user=request.user,data=request.POST)
+        chpass = PasswordChangeForm(user=request.user, data=request.POST)
         if chpass.is_valid():
             chpass.save()
-            messages.success(request,'Password Has Been Changed')
-            update_session_auth_hash(request,chpass.user)
+            messages.success(request, 'Password Has Been Changed')
+            update_session_auth_hash(request, chpass.user)
             return redirect('/profile/')
         else:
-            messages.error(request,'Password Not Change')
+            messages.error(request, 'Password Not Change')
     else:
         chpass = PasswordChangeForm(user=request.user)
-    return render(request,'nursery/changepassword.html',{'chpass':chpass})
+    return render(request, 'nursery/changepassword.html', {'chpass': chpass})
 
-# forgotpassword page 
+
+# forgotpassword page
 def forgotpassword(request):
     if request.method == "POST":
-        fgpass = SetPasswordForm(user=request.user,data=request.POST)
+        fgpass = SetPasswordForm(user=request.user, data=request.POST)
         if fgpass.is_valid():
             fgpass.save()
-            messages.success(request,'Password Has Been Changed')
-            update_session_auth_hash(request,fgpass.user)
+            messages.success(request, 'Password Has Been Changed')
+            update_session_auth_hash(request, fgpass.user)
             return redirect('/profile/')
         else:
-            messages.error(request,'Password Not Change')
+            messages.error(request, 'Password Not Change')
     else:
         fgpass = SetPasswordForm(user=request.user)
-    return render(request,'nursery/forgotpassword.html',{'fgpass':fgpass}) 
-
+    return render(request, 'nursery/forgotpassword.html', {'fgpass': fgpass})

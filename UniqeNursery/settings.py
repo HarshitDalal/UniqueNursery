@@ -15,24 +15,21 @@ import os
 import cloudinary
 import cloudinary.uploader
 import cloudinary.api
-import dj_database_url
-from decouple import config
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = "django-insecure-oy+*ca%)&%7@e4-o(^^9kr61cf2f(5=b3n#rl8k4xeg=*#)m&="
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-# ALLOWED_HOSTS = ["uniquenursery-production.up.railway.app","localhost"]
 ALLOWED_HOSTS = ["*"]
-
 
 # Application definition
 
@@ -51,7 +48,6 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    "whitenoise.middleware.WhiteNoiseMiddleware",
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -79,7 +75,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'UniqeNursery.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
@@ -89,10 +84,6 @@ DATABASES = {
         'NAME': BASE_DIR / 'UniqeNursery.sqlite3',
     },
 }
-
-
-DATABASES['default']= dj_database_url.config()
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
@@ -112,7 +103,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
 
@@ -125,7 +115,6 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = False
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
@@ -143,7 +132,7 @@ STATICFILES_DIRS = [
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-#Media files
+# Media files
 
 MEDIA_URL = '/media/'
 
@@ -156,15 +145,14 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = "dgmarket11@gmail.com"
 EMAIL_HOST_PASSWORD = "harshit70"
 
-
-#Login Direction
+# Login Direction
 LOGIN_URL = '/login/'
 LOGIN_REDIRECT_URL = '/profile/'
 LOGOUT_REDIRECT_URL = '/login/'
 
-cloudinary.config( 
-  cloud_name = "market21", 
-  api_key = "737594626935518",
-  api_secret = "jHLCb0g2WHIhEY8ShXNMellHqrU",
-  secure = True,
+cloudinary.config(
+    cloud_name="market21",
+    api_key="737594626935518",
+    api_secret="jHLCb0g2WHIhEY8ShXNMellHqrU",
+    secure=True,
 )
